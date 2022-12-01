@@ -1,0 +1,47 @@
+.nav {
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: white;
+
+    div.side_bar {
+        left: -20vw;
+        height: 100vh;
+        width: 20vw;
+        z-index: 9;
+        transition: all .35s;
+        position: fixed;
+        flex-direction: column;
+        background-color: #a8a8f5e0;
+
+
+        ul.contents {
+            position: absolute;
+            top: 150px;
+            left: 62px;
+
+            li {
+                padding: 5px;
+                font-size: 20px;
+            }
+        }
+
+    }
+
+    input[type="checkbox"]:checked~.hamburger+div.side_bar {
+        left: 0;
+    }
+}
+
+div.hamburger {
+    position: fixed;
+    z-index: 9;
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    right: 0;
+    background-color: rgba(33, 32, 32, 0.15);
+    transition: background-color ease-in-out 0.3s;
+}

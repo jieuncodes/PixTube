@@ -1,0 +1,12 @@
+extends ../base
+include ../mixin/video
+
+block content        
+    div.video_list
+        each video in videos 
+            +video(video)
+        else
+            span Sorry nothing found.
+            
+    if loggedIn
+        a(href="/videos/upload") Upload Video

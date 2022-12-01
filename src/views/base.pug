@@ -1,0 +1,25 @@
+include mixin/message
+
+doctype html
+html(lang="en")
+    head       
+        title PixTube | #{pageTitle} 
+        script(src="https://kit.fontawesome.com/5f69680060.js" crossorigin="anonymous")        
+        link(rel="stylesheet", href="/static/css/styles.css")
+
+    body 
+        include partials/nav.pug
+        include partials/header.pug   
+        
+
+        main.main
+            if messages.error
+                +message("error", messages.error)
+            if messages.info
+                +message("info", messages.info)
+            if messages.success
+                +message("success", messages.success)
+            div.contents
+                block content            
+    
+    block scripts

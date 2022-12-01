@@ -1,0 +1,33 @@
+header {
+    z-index: 2;
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 0.73fr 4fr 1fr 2fr;
+    position: sticky;
+    top: 0px;
+
+    align-items: center;
+    justify-content: space-between;
+    border: solid white;
+    border-width: 50px 0;
+    background-color: white;
+
+    .header__site_logo {
+        justify-self: center;
+        a {
+            font-family: 'PT Sans Narrow', sans-serif;
+            font-size: 40px;
+            font-weight: 550;
+            background: radial-gradient(circle farthest-side at center center, #ff0f6f 20%, #c91db2 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+    .header__search_bar{
+
+    }
+    .header__right_icons{
+        right: 0;
+    }
+}

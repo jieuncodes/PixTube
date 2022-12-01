@@ -1,0 +1,11 @@
+if loggedInUser 
+    div.add-comments          
+        div.user-profile-pic
+                img(src=`${loggedInUser.profilePicPath}`, crossorigin="anonymous")      
+        form#addCommentForm              
+            textarea(cols="70", rows="1", placeholder="Write a nice comment here!")
+            button Add Comment
+            
+div.comments
+    each comment in video.comments.reverse() 
+        +comment(comment)

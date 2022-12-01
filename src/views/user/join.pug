@@ -1,0 +1,24 @@
+extends ../base
+
+block content
+    
+    div.enter_user_container
+        div.sign_in_container
+            h1 Welcome Back! 
+            p To keep connected with us, 
+            p please login with your personal details
+            a(href="/user/login") Sign In
+            
+        div.sign_up_container            
+            h1 Create Account
+            if errorMessage 
+                span.errorMessage=errorMessage
+            form(method="POST", enctype="multipart/form-data")
+                label(for="profile_pic") Picture 
+                input(id="profile_pic", type="file", name="profile_pic", accept="image/*")       
+                input(placeholder="e-mail", type="text", name="email", required)
+                input(placeholder="Password", type="password", name="password", required)
+                input(placeholder="Confirm password", type="password", name="password2", required)
+                input(placeholder="Username", type="text", name="username", required)
+                input(placeholder="location", type="text", name="location")
+                input(value="Join PixTube!", type="submit")

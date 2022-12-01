@@ -1,0 +1,13 @@
+extends ../base.pug
+
+block content 
+    if errorMessage 
+        span.errorMessage=errorMessage
+    form(method="POST").video-edit__form
+        input(placeholder="Video Title", value=video.title, required, name="title")
+        input(placeholder="Description", value=video.description, name="description")
+        input(placeholder="Hashtags, separated by comma.", value=video.hashtags.join(), name="hashtags")
+        input(value="Save", type="submit")
+        
+        a(href=`/videos/${video.id}/delete`) Delete Video &rarr;
+        

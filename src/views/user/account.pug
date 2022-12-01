@@ -1,0 +1,39 @@
+extends ../base
+include ../mixin/video
+
+
+block content
+    div.profile_card
+        img(src=user.profilePicPath, height="100", crossorigin="anonymous")
+        
+        div.banner_img
+        div.profile_img
+        div.user_name
+            span=user.username
+        div.user_phrase
+        div.occupation_location_followers
+            span Developer ∙ Korea,Deagu ∙ 15 followers 
+        div.following_state
+            span ✔︎following
+        div.account_nav
+            span home / introduce / updates / twits / videos
+
+        if loggedInUser
+            if (String(loggedInUser._id) === String(user._id))
+                a(href="/user/edit") Edit profile
+
+    hr    
+
+    div.account_contents
+        if loggedInUser
+             if (String(loggedInUser._id) === String(user._id))
+                span=user.email 
+                span=user.location
+        hr
+    
+        h2 User Uploaded Videos
+        div.video_list
+            each video in user.videos
+                +video(video)
+            else 
+                span There are no videos uploaded by this user.

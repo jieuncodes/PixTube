@@ -1,0 +1,19 @@
+header.header           
+    div.header__site_logo
+        //img of youtube
+        a(href="/") PixTube 
+    div.header__search_bar
+        form(method="GET", action="/videos/search")
+            input(type="text", placeholder="search", name="search")
+            input(type="submit", value="Search")
+    
+    div.header__right_icons        
+        if loggedIn   
+            a(href="/videos/upload").upload-video-icon
+                i.fa-solid.fa-video
+            i.fa-solid.fa-bell
+            a#profileLink(href=`/user/${loggedInUser._id}`) #{loggedInUser.username}'s Profile                 
+            a(href="/user/logout") Log Out        
+            //loggedInUser's profile pic
+        else
+            a(href="/user/login") Sign in

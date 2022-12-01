@@ -1,0 +1,23 @@
+div.enter_user_container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    h1 {
+        font-family: nunito;
+        font-size: 23px;
+        font-weight: 400;
+    }
+    div.sign_in_container {
+        width: 50%;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sign_up_container {
+        width: 50%;
+    }
+}
+
