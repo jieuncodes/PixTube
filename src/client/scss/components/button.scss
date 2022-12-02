@@ -1,0 +1,24 @@
+a.round-btn{
+    justify-content: center;
+    height: 40px;
+    max-width: 150px;
+    min-width: 100px;
+    border: solid 2px;
+    border-color: rgba(213, 52, 23, 0.692);
+    border-radius: 15% / 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    span {
+        margin-left: 5px;
+        font-weight: bolder;
+    }
+    &:hover {
+        background-color: $ytred;
+        color: white;
+
+    }
+}
+// #video-upload-btn{
+
+// }

@@ -1,8 +1,10 @@
 import Video from "../models/Video";
 import User from "../models/User";
+import { format } from "timeago.js";
 
 export const videos = async (req, res) => {
   const videos = await Video.find({}).sort({ createdAt: "desc" });
+
   return res.render("video/videos_main", { pageTitle: "Videos", videos });
 };
 
@@ -14,8 +16,14 @@ export const watch = async (req, res) => {
       .status(404)
       .render("pages/error/404", { pageTitle: "Video not found." });
   }
+  const updatedTimeago = format(video.createdAt, "ko_KR");
+
   // console.log(video);
-  return res.render("video/watch", { pageTitle: "Videos", video });
+  return res.render("video/watch", {
+    pageTitle: "Videos",
+    video,
+    updatedTimeago,
+  });
 };
 
 export const getUpload = (req, res) => {
@@ -27,6 +35,7 @@ export const postUpload = async (req, res) => {
   } = req.session;
   const { title, description, hashtags } = req.body;
   const { video, thumb } = req.files;
+  console.log(req.files);
   try {
     const newVideo = await Video.create({
       videoPath: video[0].path,
@@ -37,7 +46,6 @@ export const postUpload = async (req, res) => {
       hashtags: Video.formatHashtags(hashtags),
       meta: {
         views: 0,
-        likes: 0,
       },
       owner: _id,
     });

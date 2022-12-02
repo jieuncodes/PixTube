@@ -27,7 +27,7 @@ block content
         div.videoInfo__state
             small.videoInfo__views #{video.meta.views} views
             small=" •"    
-            small.videoInfo__last_update   Last update  #{new Date(video.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'short', day: 'numeric'})}    
+            small.videoInfo__last_update   Last update  #{updatedTimeago}
 
         hr
         div#uploader_info
@@ -47,4 +47,4 @@ block content
 block scripts
     script(src="/static/js/videoPlayer.js")
     if loggedInUser
-        script(src ="/static/js/commentSection.js")
+        //- script(src ="/static/js/commentSection.js")

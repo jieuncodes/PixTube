@@ -1,19 +1,24 @@
 header.header           
-    div.header__site_logo
-        //img of youtube
-        a(href="/") PixTube 
+    a.header__site_logo(href="/")
+        img(src="/img/youtube-logo.png", height="40" crossorigin="anonymous")
+        span PixTube 
     div.header__search_bar
         form(method="GET", action="/videos/search")
-            input(type="text", placeholder="search", name="search")
-            input(type="submit", value="Search")
+            input.typing-area(type="text", placeholder="  Search", name="search")
+            input.search-btn(type="submit", value="Go!")
     
     div.header__right_icons        
         if loggedIn   
-            a(href="/videos/upload").upload-video-icon
+            a(href="/videos/upload").upload-video-icon +
                 i.fa-solid.fa-video
-            i.fa-solid.fa-bell
-            a#profileLink(href=`/user/${loggedInUser._id}`) #{loggedInUser.username}'s Profile                 
-            a(href="/user/logout") Log Out        
-            //loggedInUser's profile pic
+            div#profileLink
+                a(href=`/user/${loggedInUser._id}`)
+                    img.avatar(src=`/${loggedInUser.profilePicPath}`, height="40",crossorigin="anonymous")              
+            a.sign-out-icon(href="/user/logout")
+                i.fas.fa-sign-out-alt
+                span Sign out
         else
-            a(href="/user/login") Sign in
+            a(href="/user/login").round-btn#video-upload-btn
+                i.fa-solid.fa-user
+                span Sign in
+                

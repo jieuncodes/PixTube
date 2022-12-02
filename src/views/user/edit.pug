@@ -2,7 +2,7 @@ extends ../base
 
 block content 
     span.errorMessage=errorMessage
-    img(src=loggedInUser.profilePicPath, height="100", crossorigin="anonymous")
+    img(src="/" + loggedInUser.profilePicPath, height="100", crossorigin="anonymous")
     form(method="POST", enctype="multipart/form-data")
         label(for="profile_pic") Picture 
         input(id="profile_pic", type="file", name="profile_pic", accept="image/*")       

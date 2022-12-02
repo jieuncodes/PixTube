@@ -24,13 +24,13 @@ npm run start
 ```
 
 ## Challenge
-[] User Auth
-[] Edit profile
-[] Change Password
-[x] Video Upload
-[x] Video Search
-[] Video Edit
-[] Watch video
-[x] Javascript Video player
-[] Comment Section
-[] Deploy
+-[ ] User Auth
+-[ ] Edit profile
+-[ ] Change Password
+-[x] Video Upload
+-[x] Video Search
+-[ ] Video Edit
+-[ ] Watch video
+-[x] Javascript Video player
+-[ ] Comment Section
+-[ ] Deploy

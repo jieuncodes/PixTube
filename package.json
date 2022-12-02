@@ -41,7 +41,8 @@
     "node-fetch": "^2.6.7",
     "nodemon": "^2.0.19",
     "pug": "^3.0.2",
-    "regenerator-runtime": "^0.13.9"
+    "regenerator-runtime": "^0.13.9",
+    "timeago.js": "^4.0.0-beta.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.19.3",

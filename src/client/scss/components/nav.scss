@@ -3,28 +3,79 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    position: fixed;
     background-color: white;
+    z-index: 100;
+    
+
+    div.hamburger{
+        position: fixed;
+        z-index: 9;
+        display: none;
+        height: 100vh;
+        width: 300vw;
+        right: 0;
+        background-color: rgba(33, 32, 32, 0.15);
+        transition: background-color ease-in-out 0.3s;
+    }
 
     div.side_bar {
-        left: -20vw;
+        left: -320px;
         height: 100vh;
-        width: 20vw;
+        width: 320px;
         z-index: 9;
         transition: all .35s;
         position: fixed;
         flex-direction: column;
-        background-color: #a8a8f5e0;
+        background-color: white;
 
+        div.logo-area {
+            margin-top: 54px;
+            margin-left: 115px;
+            display: flex;
+            align-items: center;
+
+
+            span {
+                margin-left: 5px;
+                font-family: 'PT Sans Narrow', sans-serif;
+                font-size: 36px;
+                font-weight: 550;
+                color: black;
+            }
+        }
 
         ul.contents {
             position: absolute;
+            height: 80vh;
+            width: 300px;
             top: 150px;
             left: 62px;
+            display:flex;
+            flex-direction: column;
 
-            li {
+            a {
+                grid-area: "contents";
+                display: grid;
+                grid-template-areas: "icon span";
+                grid-template-columns: 1.5fr 7fr;
                 padding: 5px;
                 font-size: 20px;
+                margin-bottom: 10px;
+
+                i {
+                    grid-area: "icon";
+                }
+
+                span {
+                    grid-area: "span";
+                    justify-content: left;
+                    margin-left: 10px;
+                }
+            }
+            p {
+                position: absolute;
+                bottom: 50px;
             }
         }
 
@@ -33,15 +84,4 @@
     input[type="checkbox"]:checked~.hamburger+div.side_bar {
         left: 0;
     }
-}
-
-div.hamburger {
-    position: fixed;
-    z-index: 9;
-    display: none;
-    height: 100vh;
-    width: 100vw;
-    right: 0;
-    background-color: rgba(33, 32, 32, 0.15);
-    transition: background-color ease-in-out 0.3s;
 }

@@ -2,7 +2,7 @@ header {
     z-index: 2;
     grid-area: header;
     display: grid;
-    grid-template-columns: 0.73fr 4fr 1fr 2fr;
+    grid-template-columns: 25fr 30fr 30fr;
     position: sticky;
     top: 0px;
 
@@ -12,22 +12,70 @@ header {
     border-width: 50px 0;
     background-color: white;
 
-    .header__site_logo {
-        justify-self: center;
-        a {
+    a.header__site_logo {
+        justify-self: left;
+        display: flex;
+        align-items: center;
+
+        span {
+            margin-left: 5px;
             font-family: 'PT Sans Narrow', sans-serif;
-            font-size: 40px;
+            font-size: 36px;
             font-weight: 550;
-            background: radial-gradient(circle farthest-side at center center, #ff0f6f 20%, #c91db2 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: black;
         }
     }
-    .header__search_bar{
+
+    .header__search_bar {
+        form {
+            flex-direction: row;
+            height: 40px;
+
+            .typing-area {
+                width: 90%;
+            }
+        }
+
 
     }
-    .header__right_icons{
-        right: 0;
+
+    .header__right_icons {
+        display: flex;
+        align-items: center;
+        justify-self: right;
+        width: 230px;
+        justify-content: space-between;
+        
+        a.upload-video-icon{
+            font-size: 25px;
+            color: white;
+            i{
+                margin-left: -20px;
+                color: black;
+            }
+            
+        }
+        img {
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+
+            object-fit: cover;
+            overflow: hidden;
+        }
+        a.sign-out-icon{
+            font-size: 25px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            span{
+                margin-left: 5px;
+                font-size: 17px;
+            }
+
+
+        }
+
+
     }
 }

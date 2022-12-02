@@ -14,11 +14,13 @@
 @import "./components/nav.scss";
 @import "./components/video_player.scss";
 @import "./components/hamburger_togle.scss";
+@import "./components/button.scss";
 
 
 //screens
 @import "./screens/videos.scss";
 @import "./screens/join.scss";
+@import "./screens/videos_main.scss";
 
 
 //Defaults
@@ -44,7 +46,7 @@ body{
         "nav main main main"
         "footer footer footer footer"
     ;
-    grid-template-columns: 0.27fr 0.73fr 4fr 1fr;
+    grid-template-columns: 5fr 25fr 30fr 30fr;
     overflow-x: hidden;
     
     

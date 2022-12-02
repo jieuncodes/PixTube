@@ -37,6 +37,8 @@ app.use(flash());
 app.use(localsMiddleware);
 
 app.use("/uploads", express.static("uploads"));
+
+app.use("/img", express.static("img"));
 app.use("/static", express.static("assets"));
 
 app.use("/", rootRouter);

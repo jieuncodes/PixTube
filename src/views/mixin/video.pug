@@ -1,12 +1,13 @@
-mixin video(video)           
-    div.video-content
-        div.thumb(style=`background-image:url(/${video.thumbPath});background-size:cover;background-position:center;`)
-        h4
-            a(href=`/videos/${video.id}`)=video.title 
-        ul 
-            li #{video.comments} comments.
-            li Posted #{video.createdAt} by #{video.owner.username}
-            li #{video.meta.views} views
-            li #{video.hashtags}
-        p=video.description
-        hr
+mixin video(video)
+    div.video-block
+        a.image-link(href=`/videos/${video.id}`)        
+            img.thumb(src=`/${video.thumbPath}`) 
+        a.title-link(href=`/videos/${video.id}`)
+            span.title=video.title 
+        div.video-meta
+            span.views #{video.meta.views} views
+            span.date=video.createdAt
+
+block scripts
+    script(src="/static/js/updatedTimeago.js")
+    //- script(src="dist/timeago.min.js")

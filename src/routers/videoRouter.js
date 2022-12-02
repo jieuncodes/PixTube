@@ -11,8 +11,8 @@ videoRouter
   .get(loggedInOnlyMiddleware, getUpload)
   .post(
     videoUpload.fields([
-      { name: "video", maxCount: 1 },
-      { name: "thumb", maxCount: 1 },
+      { name: "video"},
+      { name: "thumb"},
     ]),
     postUpload
   );

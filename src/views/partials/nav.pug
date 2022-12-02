@@ -8,19 +8,35 @@
         
         div.side_bar
             div.logo-area
-                img(src="/Users/jieunlim/Documents/GitHub/PixTube/img/youtube-logo.png") 
+                img(src="/img/youtube-logo.png", height="40" crossorigin="anonymous")
                 span PixTube
 
             ul.contents
-                li Home
-                li Subscriptions
+                a(href="/") 
+                    i.fas.fa-home
+                    span="Home"
+                a 
+                    i.fas.fa-list
+                    span="Subscriptions"
                 hr
-                li Library
-                li Histroy
-                li Your videos
+                a 
+                    i.fas.fa-photo-video
+                    span="Library"
+                a 
+                    i.fas.fa-history
+                    span="Histroy"
+                a  
+                    i.fas.fa-video
+                    span="Your videos"
                 hr
-                li Settings
-                li Send feedback
+                a 
+                    i.fas.fa-wrench
+                    span="Settings"
+
+                a  
+                    i.far.fa-envelope
+                    span="Send feedback"
+
 
                 p &copy; #{new Date().getFullYear()} PixTube by youredith
                     
