@@ -1,0 +1,18 @@
+.video_list{
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);;
+ grid-template-rows: repeat(2, 1fr); 
+ .video-content{
+    .thumb{
+        display:flex;
+        justify-content: center;
+        margin-bottom: 100px;
+    }
+    h4{
+
+    }
+    ul{
+
+    }
+ }
+}
