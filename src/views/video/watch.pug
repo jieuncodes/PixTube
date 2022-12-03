@@ -22,25 +22,27 @@ block content
                     i.fas.fa-expand
 
     div#videoInfo
-        div.videoInfo__hashtags=video.hashtags
-        h2.videoInfo__title=video.title
+        div.videoInfo__header
+            div.videoInfo__hashtags=video.hashtags
+            h2.videoInfo__title=video.title
+            div.videoInfo__state
+                small.videoInfo__views #{video.meta.views} views
+                small="•"  
+                small.videoInfo__last_update   Last update  #{updatedTimeago}
         
-        div.videoInfo__title
+        div.videoInfo__uploaderInfo
             img.avatar(src=`/${video.owner.profilePicPath}`, height="60", crossorigin="anonymous")
-            small.uploaderInfo__uploader Uploaded by 
-            a(href=`/user/${String(video.owner._id)}`) #{video.owner.username}
+            div.descriptions
+                a(href=`/user/${String(video.owner._id)}`) #{video.owner.username}
+                span.subscribers 3 subscribers
+                div.description=video.description 
+                
+            a.round-btn SUBSCRIBE
 
-        div.videoInfo__description=video.description 
-        div.videoInfo__state
-            small.videoInfo__views #{video.meta.views} views
-            small=" •"    
-            small.videoInfo__last_update   Last update  #{updatedTimeago}
-        
         
     include ../components/comment      
 
-    if loggedInUser && String(video.owner._id) === String(loggedInUser._id)            
-        a(href=`${video.id}/edit`) Edit Video &rarr; 
+    
     
 
 block scripts

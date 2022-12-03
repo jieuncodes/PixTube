@@ -71,12 +71,18 @@
                     grid-area: "span";
                     justify-content: left;
                     margin-left: 10px;
+                    
+                }
+                &:hover{
+                    color: $ytred;
+                    font-weight: bolder;
                 }
             }
             p {
                 position: absolute;
                 bottom: 50px;
             }
+            
         }
 
     }

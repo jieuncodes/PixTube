@@ -4,12 +4,11 @@ include ../mixin/video
 
 block content
     div.profile_card
-        img(src="/" + user.profilePicPath, height="100", crossorigin="anonymous")
-        
-        div.banner_img
-        div.profile_img
-        div.user_name
-            span=user.username
+        div.main-info
+            div.profile_img
+                img.avatar(src= "/" + user.profilePicPath,crossorigin="anonymous")
+            div.user_name
+                span=user.username
         div.user_phrase
         div.occupation_location_followers
             span Developer ∙ Korea,Deagu ∙ 15 followers 

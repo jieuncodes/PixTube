@@ -169,7 +169,7 @@ export const postEdit = async (req, res) => {
     const originalUser = req.session.user; 
     const pageTitle = "Edit Profile";
     const existingEmail = await User.exists( { email } );
-    const existingUsername = await User.exists( { username } );
+    const existingUsernadme = await User.exists( { username } );
     const hasEmailNotChanged = Boolean(email === originalUser.email);
     const hasUsernameNotChanged = Boolean(username === originalUser.username);
 

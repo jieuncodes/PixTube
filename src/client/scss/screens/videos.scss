@@ -1,22 +1,65 @@
-#videoInfo{
-    .videoInfo__hashtags{
-        display:flex;
-        margin-top: 20px;
-        margin-bottom: 7px;
-        color: grey;
-    }
-    .videoInfo__title{
-        font-size: 22px;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-    .videoInfo__state{
+#videoInfo {
+    .videoInfo__header{
+        position: relative;
+        .videoInfo__hashtags {
+            display: flex;
+            margin-top: 20px;
+            margin-bottom: 7px;
+            color: grey;
+        }
+    
+        .videoInfo__title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .videoInfo__state {
+            position: absolute;
+            display:flex;
+            width: 100%;
+            justify-content: right;
+            top: 25px;
+            small{
+                margin-left: 7px;
+            }
+        }
+    }    
 
-    }
-    .videoInfo__last_update{
+    .videoInfo__uploaderInfo {
+        margin-top: 30px;
+        display: grid;
+        width: 100%;
+        grid-template-areas: "pic descriptions subscribe";
+        grid-template-columns: 70px auto auto;
 
-    }
-    #uploader_info{
+        img.avatar{
+            grid-area: "pic";
+        }
+        div.descriptions{
+            grid-area: "descriptions";
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+            a {
+                grid-area: descriptions;
+                font-size: 20px;
+                font-weight:900;
+            }
+            span.subscribers{
+                margin-top: 5px;
+                color: grey;
 
+            }
+            .description{
+                margin-top: 25px;
+            }
+        }
+        a.round-btn{
+            grid-area: "subscribe";
+            justify-self: right;
+            width: 200px;
+            border-radius: 0;
+        }
     }
+
 }

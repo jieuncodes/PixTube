@@ -3,11 +3,20 @@ extends ../base.pug
 block content 
     if errorMessage 
         span.errorMessage=errorMessage
+
     form(method="POST").video-edit__form
-        input(placeholder="Video Title", value=video.title, required, name="title")
-        input(placeholder="Description", value=video.description, name="description")
-        input(placeholder="Hashtags, separated by comma.", value=video.hashtags.join(), name="hashtags")
-        input(value="Save", type="submit")
-        
-        a(href=`/videos/${video.id}/delete`) Delete Video &rarr;
+        div.title
+            label(for="title") Title
+            input(name="title", placeholder="Video Title", value=video.title, required )
+        div.description
+            label(for="description") Description
+            input(name="description", placeholder="Description", value=video.description )
+        div.hashtags
+            label(for="hashtags") Hashtags
+            input(name="hashtags", placeholder="Hashtags, separated by comma.", value=video.hashtags.join(),)
+        input.save-btn(value="Save", type="submit")
+
+        div.dangerous-zone 
+            span Dangerous Zone       
+            a.round-btn(href=`/videos/${video.id}/delete`) Delete Video &rarr;
         

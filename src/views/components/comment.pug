@@ -1,10 +1,21 @@
 if loggedInUser 
+    hr
     div.add-comments          
         div.user-profile-pic
-                img.avatar(src=`/${loggedInUser.profilePicPath}`, crossorigin="anonymous")      
-        form#addCommentForm              
-            textarea(cols="70", rows="1", placeholder="Write a nice comment here!")
-            button Add Comment
+                img.avatar(src=`/${loggedInUser.profilePicPath}`, crossorigin="anonymous")    
+
+        div.comment-line  
+            form#addCommentForm              
+                textarea(cols="70", rows="0.5", placeholder="Write a nice comment here!")
+                button Submit
+
+            if loggedInUser && String(video.owner._id) === String(loggedInUser._id)            
+                a.edit-video-btn.round-btn(href=`${video.id}/edit`) Edit Video
+
+    
+        
+//if this is video owned by the curr user
+    
             
 div.comments
     each comment in video.comments.reverse() 

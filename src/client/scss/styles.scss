@@ -16,14 +16,17 @@
 @import "./components/hamburger_togle.scss";
 @import "./components/button.scss";
 @import "./components/avatar.scss";
+@import "./components/comment.scss";
+@import "./components/error_message.scss";
 
 
 //screens
 @import "./screens/videos.scss";
 @import "./screens/join.scss";
 @import "./screens/videos_main.scss";
-@import "./screens/watch.scss";
-
+@import "./screens/video_edit.scss";
+@import "./screens/edit_profile.scss";
+@import "./screens/user_profile.scss";
 
 //Defaults
 * {
@@ -31,9 +34,6 @@
         color: inherit;
         text-decoration: none;
     }        
-    span.errorMessage {
-        color: rgb(255, 0, 157);
-    }
 }
 
 
@@ -57,7 +57,10 @@ body{
         display: grid;       
         height: 200vh;
         margin: 50px 110px 40px 40px;   
-        background-color: white;    
+        background-color: white;   
+        .contents{
+          width: 73vw;
+        } 
     }
 };
     

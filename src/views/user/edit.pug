@@ -2,6 +2,7 @@ extends ../base
 
 block content 
     span.errorMessage=errorMessage
+    
     img(src="/" + loggedInUser.profilePicPath, height="100", crossorigin="anonymous")
     form(method="POST", enctype="multipart/form-data")
         label(for="profile_pic") Picture 
