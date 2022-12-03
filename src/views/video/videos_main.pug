@@ -9,9 +9,9 @@ block content
             span Sorry nothing found.
             
         if loggedIn
-            a(href="/videos/upload").round-btn 
+            a(href="/videos/upload").round-btn#upload-video-btn
                 i.fas.fa-video
                 span Upload Video
 block scripts
+    script(src="dist/timeago.min.js")
     script(src="/static/js/updatedTimeago.js")
-    //- script(src="dist/timeago.min.js")

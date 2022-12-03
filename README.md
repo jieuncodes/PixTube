@@ -26,7 +26,7 @@ npm run start
 ## Challenge
 -[ ] User Auth
 -[ ] Edit profile
--[ ] Change Password
+-[x] Change Password
 -[x] Video Upload
 -[x] Video Search
 -[ ] Video Edit

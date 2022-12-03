@@ -35,8 +35,6 @@ header {
                 width: 90%;
             }
         }
-
-
     }
 
     .header__right_icons {
@@ -55,14 +53,6 @@ header {
             }
             
         }
-        img {
-            border-radius: 50%;
-            height: 40px;
-            width: 40px;
-
-            object-fit: cover;
-            overflow: hidden;
-        }
         a.sign-out-icon{
             font-size: 25px;
             display:flex;
@@ -72,10 +62,6 @@ header {
                 margin-left: 5px;
                 font-size: 17px;
             }
-
-
         }
-
-
     }
 }

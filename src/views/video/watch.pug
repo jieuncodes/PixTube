@@ -24,25 +24,24 @@ block content
     div#videoInfo
         div.videoInfo__hashtags=video.hashtags
         h2.videoInfo__title=video.title
+        
+        div.videoInfo__title
+            img.avatar(src=`/${video.owner.profilePicPath}`, height="60", crossorigin="anonymous")
+            small.uploaderInfo__uploader Uploaded by 
+            a(href=`/user/${String(video.owner._id)}`) #{video.owner.username}
+
+        div.videoInfo__description=video.description 
         div.videoInfo__state
             small.videoInfo__views #{video.meta.views} views
             small=" •"    
             small.videoInfo__last_update   Last update  #{updatedTimeago}
-
-        hr
-        div#uploader_info
-            img(src=`${video.owner.profilePicPath}`, height="60", crossorigin="anonymous")
-            small.uploaderInfo__uploader Uploaded by 
-            a(href=`/user/${String(video.owner._id)}`) #{video.owner.username}
-        div.videoInfo__description=video.description        
-        hr
+        
         
     include ../components/comment      
 
     if loggedInUser && String(video.owner._id) === String(loggedInUser._id)            
         a(href=`${video.id}/edit`) Edit Video &rarr; 
     
-
 
 block scripts
     script(src="/static/js/videoPlayer.js")
