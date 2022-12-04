@@ -35,5 +35,5 @@ npm run start
 - [x] Video Edit
 - [x] Watch video
 - [x] Javascript Video player
-- [ ] Comment Section
+- [x] Comment Section
 - [ ] Deploy

@@ -1,7 +1,6 @@
 import Video from "../models/Video";
 import User from "../models/User";
 import { format } from "timeago.js";
-import { resourceUsage } from "process";
 
 export const videos = async (req, res) => {
   const videos = await Video.find({}).sort({ createdAt: "desc" });

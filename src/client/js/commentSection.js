@@ -5,13 +5,13 @@ const btn = form.querySelector("button");
 const createdAt = document.querySelector(".comment-createdAt");
 const allEllipses = document.querySelectorAll(".ellipsis");
 const profileLink = document.getElementById("profileLink");
-console.log('', profileLink);
-const loggedInUserId = profileLink.href.slice(-24);
+const linkAnchor = profileLink.querySelector("a");
+const loggedInUserId = linkAnchor.pathname.slice(-24);
 const editForm = document.getElementById("editForm");
 
-const addComment = (text, id, owner, video) => {
-  console.log('', profileLink);
 
+const addComment = (text, id, owner, video) => {
+  console.log('adding comment', );
   const videoComments = document.querySelector(".comments");
   const newCommentBox = document.createElement("div");
   newCommentBox.className = "comment-box";
@@ -29,9 +29,9 @@ const addComment = (text, id, owner, video) => {
   const commentBoxTop = document.createElement("div");
   commentBoxTop.className = "comment-box__top";
 
-  const ownerNameSrc = document.querySelector(".brief_user_info a").text;
+  const ownerNameSrc = profileLink.getAttribute("username");
   const ownerName = document.createElement("span");
-  ownerName.innerText = ownerNameSrc.replace("'s Profile", "");
+  ownerName.innerHTML = ownerNameSrc;
   ownerName.className = "comment-owner";
 
   const createdAt = document.createElement("span");
@@ -47,10 +47,6 @@ const addComment = (text, id, owner, video) => {
   const commentBoxBottom = document.createElement("div");
   commentBoxBottom.className = "comment-box__bottom";
 
-  const reply = document.createElement("span");
-  reply.className = "reply";
-  reply.innerText = "reply";
-
   const ellipsis = document.createElement("div");
   ellipsis.className = "ellipsis";
   ellipsis.dataset.owner = owner;
@@ -61,8 +57,6 @@ const addComment = (text, id, owner, video) => {
 
   ellipsis.appendChild(ellipsisIcon);
 
-  commentBoxBottom.appendChild(likeBtns);
-  commentBoxBottom.appendChild(reply);
   newCommentBox.appendChild(commentOwnerProfilePic);
   newCommentBox.appendChild(commentBoxTop);
   newCommentBox.appendChild(commentText);
@@ -75,7 +69,7 @@ const addComment = (text, id, owner, video) => {
 
 const createComment = async (event) => {
   event.preventDefault();
-  console.log('submitted!', );
+  console.log("submitted!");
   const text = textarea.value;
   const videoId = videoContainer.dataset.id;
   if (text === "") {
@@ -133,8 +127,6 @@ const updateComment = async (
     commentBox.addEventListener("mouseleave", () => {
       ellipsis.style.opacity = "0";
     });
-
-
   }
 };
 
@@ -150,10 +142,12 @@ const handleCommentDelete = async (event) => {
 };
 
 const handleEllipsisClick = async (event) => {
-  console.log('click', );
+  console.log("click");
   const popup = document.createElement("div");
   popup.className = "popup";
   const ellipsis = event.target;
+
+  console.log('', loggedInUserId);
 
   if (
     event.currentTarget.dataset.owner === loggedInUserId ||
@@ -199,11 +193,10 @@ const handleEllipsisClick = async (event) => {
     once: true,
   });
   ellipsis.style.opacity = "1";
-
 };
 
 const handleEllipsisClickTwice = (event) => {
-  console.log('twice', );
+  console.log("twice");
   const ellipsis = event.target;
   const popup = ellipsis.parentNode.querySelector(".popup");
   const commentBox = ellipsis.parentNode.parentNode;
@@ -288,7 +281,7 @@ const handleEditCancel = () => {
     ellipsis.style.opacity = "0";
   });
   ellipsis.removeEventListener("click", handleEllipsisClickTwice);
-  ellipsis.addEventListener("click", handleEllipsisClick, {once: true});
+  ellipsis.addEventListener("click", handleEllipsisClick, { once: true });
 };
 
 

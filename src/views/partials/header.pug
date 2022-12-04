@@ -11,7 +11,7 @@ header.header
         if loggedIn   
             a(href="/videos/upload").upload-video-icon +
                 i.fa-solid.fa-video
-            div#profileLink
+            div#profileLink(username=loggedInUser.username)
                 a(href=`/user/${loggedInUser._id}`)
                     img.avatar(src=`/${loggedInUser.profilePicPath}`, height="40",crossorigin="anonymous")              
             a.sign-out-icon(href="/user/logout")

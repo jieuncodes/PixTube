@@ -36,8 +36,11 @@ block content
                 a(href=`/user/${String(video.owner._id)}`) #{video.owner.username}
                 span.subscribers 3 subscribers
                 div.description=video.description 
-                
-            a.round-btn SUBSCRIBE
+            
+            if loggedInUser && (String(loggedInUser._id) !== String(video.owner._id))
+                a.round-btn SUBSCRIBE
+            else if loggedInUser && (String(loggedInUser._id) === String(video.owner._id))
+                a(href=href=`${video.id}/edit`).round-btn Edit Video
 
         
     include ../components/comment      

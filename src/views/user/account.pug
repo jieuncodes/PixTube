@@ -1,7 +1,6 @@
 extends ../base
 include ../mixin/video
 
-
 block content
     div.profile_card
         div.main-info
@@ -17,8 +16,7 @@ block content
             label.subtitle(for="following-state") My following state  
             span ✔︎following 
 
-        if loggedInUser
-            if (String(loggedInUser._id) === String(user._id))
+        if loggedInUser && (String(loggedInUser._id) === String(user._id))
                 a.normal-btn(href="/user/edit") Edit profile &rarr;
 
     hr    
