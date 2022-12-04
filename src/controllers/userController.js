@@ -13,7 +13,7 @@ export const postJoin = async (req, res) => {
     let picFile = req.file;
     if (!picFile) {
         picFile = {
-            path: "https://websterbyj.s3.ap-northeast-2.amazonaws.com/user-default.jpeg",
+            path: "https://pixtube.s3.ap-northeast-2.amazonaws.com/default_avatar.webp",
             // path: "../img/default_avatar.webp",
         }
     }
