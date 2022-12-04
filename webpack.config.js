@@ -9,7 +9,7 @@ module.exports = {
     videoPlayer: BASE_JS + "videoPlayer",
     recorder: BASE_JS + "recorder.js",
     commentSection : BASE_JS + "commentSection.js",
-    updatedTimeago: "./src/client/js/updatedTimeago.js",
+    updatedTimeago: BASE_JS + "updatedTimeago.js",
 
   },
   plugins: [

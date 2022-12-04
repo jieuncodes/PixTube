@@ -1,8 +1,6 @@
 import mongoose from "mongoose";
 
-const mongoURL = `mongodb+srv://youredith:${process.env.MONGODB_PW}@pixtube.uelmwuu.mongodb.net/?retryWrites=true&w=majority`;
-
-mongoose.connect(mongoURL);
+mongoose.connect(process.env.DB_URL)
 
 const db = mongoose.connection;
 

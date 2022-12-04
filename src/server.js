@@ -10,7 +10,6 @@ import videoRouter from "./routers/videoRouter";
 import apiRouter from "./routers/apiRouter.js";
 
 const app = express();
-const mongoURL = `mongodb+srv://youredith:${process.env.MONGODB_PW}@pixtube.uelmwuu.mongodb.net/?retryWrites=true&w=majority`;
 
 app.use((req, res, next) => {
     res.header("Cross-Origin-Embedder-Policy", "require-corp");
@@ -30,7 +29,7 @@ app.use(
         cookie: { 
             maxAge: 86400000, 
         },
-        store: MongoStore.create({mongoUrl: mongoURL}),
+        store: MongoStore.create({mongoUrl: process.env.DB_URL}),
     })
 );
 app.use(flash()); 
