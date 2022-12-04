@@ -17,6 +17,7 @@ export const postJoin = async (req, res) => {
             // path: "../img/default_avatar.webp",
         }
     }
+    
 
     const exists = await User.exists({ $or: [{ email }, { username }] });
     if (exists) {
@@ -90,7 +91,6 @@ export const startGithubLogin = (req, res) => {
     }; 
     const params = new URLSearchParams(config).toString();
     const finalURL = `${baseURL}?${params}`;
-    console.log('finalURL', finalURL);
     return res.redirect(finalURL);
 };
 

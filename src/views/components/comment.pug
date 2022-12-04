@@ -2,6 +2,9 @@ if loggedInUser
     hr
     div.add-comments          
         div.user-profile-pic
+            if loggedInUser.socialOnly
+                img.avatar(src=`${loggedInUser.profilePicPath}`, crossorigin="anonymous") 
+            else
                 img.avatar(src=`/${loggedInUser.profilePicPath}`, crossorigin="anonymous")    
         div.comment-line  
             form#addCommentForm         

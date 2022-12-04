@@ -1,0 +1,25 @@
+.preview-box{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+
+    video#preview{
+        height: 300px;
+    }
+    button#startBtn{
+        height: 40px;
+        height: 40px;
+        border-radius: 10px;
+        margin-left: 50px;
+        background-color: white;
+        &:hover{
+            color: white;
+            background-color: $ytred;
+            border-color: $ytred;
+            cursor: pointer;
+        }
+
+    }
+} 
+    

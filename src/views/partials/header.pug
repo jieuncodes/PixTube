@@ -13,7 +13,10 @@ header.header
                 i.fa-solid.fa-video
             div#profileLink(username=loggedInUser.username)
                 a(href=`/user/${loggedInUser._id}`)
-                    img.avatar(src=`/${loggedInUser.profilePicPath}`, height="40",crossorigin="anonymous")              
+                    if loggedInUser.socialOnly
+                        img.avatar(src=`${loggedInUser.profilePicPath}`, height="40",crossorigin="anonymous") 
+                    else 
+                        img.avatar(src=`/${loggedInUser.profilePicPath}`, height="40",crossorigin="anonymous")              
             a.sign-out-icon(href="/user/logout")
                 i.fas.fa-sign-out-alt
                 span Sign out

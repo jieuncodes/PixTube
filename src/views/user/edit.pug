@@ -8,7 +8,10 @@ block content
             label.subtitle(for="profile_pic") My profile picture 
             input(id="profile_pic", type="file", name="profile_pic", accept="image/*")       
             div.profile_img.user-edit-page
-                img(src="/" + loggedInUser.profilePicPath, crossorigin="anonymous")
+                if loggedInUser.socialOnly
+                    img(src=loggedInUser.profilePicPath, crossorigin="anonymous")
+                else
+                    img(src="/" + loggedInUser.profilePicPath, crossorigin="anonymous")
         div.email    
             label.subtitle(for="email") Email 
             input(placeholder="e-mail", type="email", name="email", value=loggedInUser.email)    

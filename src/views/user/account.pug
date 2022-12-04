@@ -5,7 +5,11 @@ block content
     div.profile_card
         div.main-info
             div.profile_img
-                img.avatar(src= "/" + user.profilePicPath,crossorigin="anonymous")
+                if loggedInUser.socialOnly
+                    img.avatar(src=user.profilePicPath,crossorigin="anonymous")
+                else
+                    img.avatar(src= "/" + user.profilePicPath,crossorigin="anonymous")
+                
             div.user_name
                 span=user.username
         div.location_followers_state
