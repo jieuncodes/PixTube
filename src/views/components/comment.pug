@@ -3,13 +3,12 @@ if loggedInUser
     div.add-comments          
         div.user-profile-pic
                 img.avatar(src=`/${loggedInUser.profilePicPath}`, crossorigin="anonymous")    
-
         div.comment-line  
-            form#addCommentForm              
+            form#addCommentForm         
                 textarea(cols="70", rows="0.5", placeholder="Write a nice comment here!")
                 button Submit
 
-            if loggedInUser && String(video.owner._id) === String(loggedInUser._id)            
+            if loggedInUser && String(video.owner._id) === String(loggedInUser._id)
                 a.edit-video-btn.round-btn(href=`${video.id}/edit`) Edit Video
 
     

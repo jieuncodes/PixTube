@@ -7,8 +7,6 @@
         display: grid;
         grid-template-areas:"form edit-btn";
 
-
-
         #addCommentForm{
             grid-area: "form";
             display:flex;
@@ -17,8 +15,8 @@
             button{
                 margin-left: 10px;
             }
-
         }
+
         a.edit-video-btn{
             grid-area: "edit-btn";
             border-radius: 20px;
@@ -28,3 +26,181 @@
     
 
 }
+
+// .add-comments {
+//     margin-top: 30px;
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//     justify-content: space-between;
+//     display: grid;
+//     grid-template-areas:
+//         "user-img add-comment add-comment  .";
+//     grid-template-columns: 70px repeat(2, auto) 50px;
+
+//     .user-profile-pic {
+//         grid-area: user-img;
+//         display: flex;
+//         justify-content: top;
+//         align-items: center;
+//         height: 60px;
+//         width: 62px;
+//         overflow: hidden;
+//         border-radius: 50%;
+//         margin-right: 50px;
+
+//         img {
+//             width: 62px;
+//             object-fit: cover;
+//         }
+//     }
+    
+//     #addCommentForm {
+//         grid-area: add-comment;
+//         display: flex;
+//         margin-top: 7px;
+//     }
+
+//     margin-bottom: 40px;
+// }
+
+// .comment-box {
+//     display: grid;
+//     grid-template-areas:
+//         "owner-img comment-box__top comment-box__top ."
+//         "owner-img  comment-text comment-text ellipsis"
+//         "owner-img comment-box__bottom . .";
+//     grid-template-columns: 70px repeat(2, auto) 50px;
+//     margin-bottom: 40px;
+//     width: 100%;
+//     position: relative;
+
+//     .comment-owner-img {
+//         grid-area: owner-img;
+//         display: flex;
+//         justify-content: top;
+//         align-items: center;
+//         height: 60px;
+//         width: 62px;
+//         overflow: hidden;
+//         border-radius: 50%;
+//         margin-right: 50px;
+
+//         img {
+//             width: 62px;
+//             object-fit: cover;
+//         }
+
+//     }
+
+//     .comment-box__top {
+//         grid-area: comment-box__top;
+//         margin-bottom: 7px;
+//         margin-left: 24px;
+//         .comment-createdAt {
+//             font-weight: 700;
+//             margin-left: 10px;
+//         }
+//     }
+//     .comment-text {
+//         grid-area: comment-text;
+//         margin-bottom: 10px;
+//         margin-left: 24px;
+
+//     }
+//     .ellipsis {
+//         grid-area: ellipsis;
+//         font-size: 20px;
+//         right: 50px;
+//         display: flex;
+//         justify-content: center;
+//         align-items:center; 
+//         z-index: 2;
+//         }
+    
+//     .ellipsis > i:first-child{
+//         opacity: 0;
+//         width: 100%;
+//     }
+//     .popup{
+//         position: absolute;
+//         width: 110px;
+//         height: 100px;
+//         border-radius: 3px;
+//         box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.461);
+//         margin-top: 150px;
+//         margin-left: 60px;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         font-size: 17px;
+//         div {
+//             padding-left: 15px;
+//             height: 32px;   
+//             display: flex;
+//             align-items: center;
+//         }
+//         div:nth-child(2){
+//             margin-top: 10px;
+//         }
+//         div i { 
+//             margin-right: 7px;
+//         }
+//         div:hover{
+//             background-color: $wgrey;
+//         }
+//     }
+
+//     .comment-box__bottom {
+//         grid-area: comment-box__bottom;
+//         display: flex;
+//         flex-direction: row;
+//         align-items: center;
+//         margin-left: 24px;
+
+//         .like-btns {
+//             display: flex;
+//             margin-right: 40px;
+//             justify-content: space-between;
+//             width: 50px;
+
+//             i:nth-child(2) {
+//                 transform: scaleX(-1);
+//                 margin-top: 1.5px;
+//             }
+//         }
+//     }    
+// }
+
+// .comment-box:hover, .ellipsis:hover {
+//     .ellipsis i:first-child {
+//         opacity: 1;
+//     }
+// }
+
+// .comments {
+//     margin-top: 70px;
+//     margin-bottom: 80px;
+// }
+
+// #editCommentForm {
+//     position: absolute;
+//     grid-area: comment-text;
+//     margin-left: 24px;
+//     display: grid;
+//     grid-auto-flow:row;
+//     grid-template-areas: 
+//         "edit-text edit-text edit-text edit-text"
+//         ". . edit-btn cancel-btn";
+//     grid-template-columns: 1fr 1fr 0.5fr 0.5fr;
+//     textarea {
+//         grid-area: edit-text;
+//     }
+//     .edit-btn {
+//         grid-area: edit-btn;
+//     }
+//     .cancel-btn {
+//         grid-area: cancel-btn;
+//     }
+
+// }

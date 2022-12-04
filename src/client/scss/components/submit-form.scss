@@ -1,10 +1,11 @@
-.video-edit__form{
+.submit-form{
     border: solid 1px rgb(178, 178, 178);
     padding: 50px;
     display:flex;
     width: 80%;
     margin-left: 5%;
     position:relative;
+    
     div{
         display:flex;
         flex-direction: row;
@@ -12,6 +13,7 @@
         label{
             font-size: 20px;
             font-weight: bold;
+            min-width: 54px;
         }
         input{
             margin-left: 30px;
@@ -19,25 +21,26 @@
             height: 20px;
         }
     }
+
+    div.profile-pic{
+        flex-direction: column;
+        height: 120px;
+        input{
+            height: 50px;
+        }
+    }
+
     .description{
         input{
             height: 60px;
         }
     }
+    
 
-    .save-btn{
-        width: 200px;
-        height: 30px;
-        position:absolute;
-        right:50px;
-        bottom: 250px;
-
-    }
-
-    .dangerous-zone{
+    .dangerous-zone, .change-pw{
         display:flex;
         border: dotted $ytred 2px;
-        margin-top: 100px;
+        margin-top: 30px;
         height: 80px;
         justify-content: center;
         align-items: center;
@@ -52,6 +55,10 @@
         .round-btn{
             width: 200px;
         }
+    }
+    .link{
+        margin-top: 10px;
+        color: blue;
     }
         
 }

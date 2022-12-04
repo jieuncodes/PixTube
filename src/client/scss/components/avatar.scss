@@ -5,3 +5,18 @@ img.avatar {
     object-fit: cover;
     overflow: hidden;
 }
+
+div.profile_img{            
+    background-color: $ytred;
+    border-radius: 50%;
+    width: 120px;
+    height:120px;
+    img{
+        width: 120px;
+        height:120px;
+        object-fit: cover;
+        overflow: hidden;
+
+
+    }
+}

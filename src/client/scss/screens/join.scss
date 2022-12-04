@@ -14,10 +14,34 @@ div.enter_user_container {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        a{
+            position: relative;
+        }
+        p{
+            margin-bottom: 5px;
+        }
     }
 
     .sign_up_container {
         width: 50%;
+        h1{
+            margin-left: 5%;
+            margin-bottom: 10px;
+
+        }
+        div{
+            margin-bottom: 10px;
+            label{
+                font-size: 18px;
+                height: 10px;
+            }
+        }
+        input{
+            margin-bottom: 10px;
+        }
+        input:nth-child(6){
+            margin-bottom: 50px;
+        }
     }
 }
 

@@ -29,9 +29,10 @@
                     i.fas.fa-video
                     span="Your videos"
                 hr
-                a 
-                    i.fas.fa-wrench
-                    span="Settings"
+                if loggedInUser
+                    a(href=`/user/${loggedInUser._id}`)
+                        i.fas.fa-wrench
+                        span="Settings"
 
                 a  
                     i.far.fa-envelope

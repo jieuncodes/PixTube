@@ -4,7 +4,7 @@ block content
     if errorMessage 
         span.errorMessage=errorMessage
 
-    form(method="POST").video-edit__form
+    form(method="POST").submit-form
         div.title
             label(for="title") Title
             input(name="title", placeholder="Video Title", value=video.title, required )

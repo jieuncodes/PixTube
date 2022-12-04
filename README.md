@@ -28,8 +28,8 @@ npm run start
 
 ## Challenge
 - [ ] User Auth
-- [ ] Edit profile
-- [ ] Change Password
+- [x] Edit profile
+- [x] Change Password
 - [x] Video Upload
 - [x] Video Search
 - [x] Video Edit

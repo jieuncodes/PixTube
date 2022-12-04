@@ -20,12 +20,19 @@ video.volume = volumeValue;
 
 
 const handlePlayClick = () => {
+  const {id} = videoContainer.dataset;
+  fetch(`/api/videos/${id}/view`, {
+    method: "POST",
+  });
+
   if (video.paused) {    
     video.play();
   } else {
     video.pause();
   }
   playBtnIcon.className = video.paused ? "fas fa-play" : "fas fa-pause";
+
+  
 };
 const handleMuteClick = () => {
   if (video.muted) {
@@ -107,12 +114,6 @@ const handleMouseMove = () => {
 const handleMouseLeave = () => {
   controlsTimeout = setTimeout(hideControls, 3000);
 };
-const handleEnded = () => {
-  const {id} = videoContainer.dataset;
-  fetch(`/api/videos/${id}/view`, {
-    method: "POST",
-  });
-}
 
 
 
@@ -132,4 +133,3 @@ video.addEventListener("loadedmetadata", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
 video.addEventListener("mousemove", handleMouseMove);
 video.addEventListener("mouseleave", handleMouseLeave);
-video.addEventListener("ended", handleEnded);

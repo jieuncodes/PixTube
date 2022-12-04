@@ -8,11 +8,15 @@ export const createComment = async (req, res) => {
       body: { text },
       params: { id },
     } = req;
+    console.log('BODBODBODOBD', req);
+
     const commentOwner = await User.findById(user._id);
     const video = await Video.findById(id);
+
     if (!video) {
       return res.sendStatus(404);
     }
+
     const comment = await Comment.create({
       text,
       owner: commentOwner,
@@ -24,6 +28,9 @@ export const createComment = async (req, res) => {
     video.comments.push(comment._id);
     commentOwner.save();
     video.save();
+
+    console.log('&^&^&^&^createdComment', comment);
+
     return res.status(201).json({ newCommentId: comment._id, ownerId: commentOwner._id, videoId: video._id });
   };
 
@@ -41,7 +48,10 @@ export const updateComment = async(req, res) => {
   if (String(comment.owner) !== user._id) {
     return res.sendStatus(401);
   }
+  
   await Comment.findByIdAndUpdate(commentId, { text: edittedText });
+  console.log('comment updated!!', );
+
   return res.sendStatus(200);
 };
 

@@ -9,29 +9,29 @@ block content
                 img.avatar(src= "/" + user.profilePicPath,crossorigin="anonymous")
             div.user_name
                 span=user.username
-        div.user_phrase
-        div.occupation_location_followers
-            span Developer ∙ Korea,Deagu ∙ 15 followers 
-        div.following_state
-            span ✔︎following
-        div.account_nav
-            span home / introduce / updates / twits / videos
+        div.location_followers_state
+            label.subtitle(for="location") Location  
+            span(name="location") #{user.location}
+            label.subtitle(for="followers") Followers  
+            span(name="followers") 15 followers 
+            label.subtitle(for="following-state") My following state  
+            span ✔︎following 
 
         if loggedInUser
             if (String(loggedInUser._id) === String(user._id))
-                a(href="/user/edit") Edit profile
+                a.normal-btn(href="/user/edit") Edit profile &rarr;
 
     hr    
 
     div.account_contents
         if loggedInUser
              if (String(loggedInUser._id) === String(user._id))
-                span=user.email 
-                span=user.location
-        hr
+                    p.subtitle My Account settings
+                    span=user.email 
+                    hr
     
-        h2 User Uploaded Videos
-        div.video_list
+        p.subtitle User Uploaded Videos
+        div.video-list.in-account-page
             each video in user.videos
                 +video(video)
             else 

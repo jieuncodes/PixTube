@@ -2,15 +2,25 @@ extends ../base
 
 block content 
     span.errorMessage=errorMessage
-    
-    img(src="/" + loggedInUser.profilePicPath, height="100", crossorigin="anonymous")
-    form(method="POST", enctype="multipart/form-data")
-        label(for="profile_pic") Picture 
-        input(id="profile_pic", type="file", name="profile_pic", accept="image/*")       
-        input(placeholder="e-mail", type="email", name="email", value=loggedInUser.email)        
-        input(placeholder="username", type="text", name="username", value=loggedInUser.username)
-        input(placeholder="location", type="text", name="location", value=loggedInUser.location)
-        input(type="submit", value="Complete edit")
+         
+    form(method="POST", enctype="multipart/form-data").submit-form
+        div.profile-pic
+            label.subtitle(for="profile_pic") My profile picture 
+            input(id="profile_pic", type="file", name="profile_pic", accept="image/*")       
+            div.profile_img.user-edit-page
+                img(src="/" + loggedInUser.profilePicPath, crossorigin="anonymous")
+        div.email    
+            label.subtitle(for="email") Email 
+            input(placeholder="e-mail", type="email", name="email", value=loggedInUser.email)    
+        div.username 
+            label.subtitle(for="username") User name       
+            input(placeholder="username", type="text", name="username", value=loggedInUser.username)
+        div.location 
+            label.subtitle(for="location") Location       
+            input(placeholder="location", type="text", name="location", value=loggedInUser.location)
+        input.save-btn(type="submit", value="Complete edit")
+        
         if !loggedInUser.socialOnly
-            a(href="/user/change_password") Change password
+            div.change-pw 
+                a.round-btn(href="/user/change_password") Change password
 

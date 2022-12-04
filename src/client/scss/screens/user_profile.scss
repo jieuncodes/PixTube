@@ -1,32 +1,44 @@
 .profile_card{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
+    display:grid;
+    grid-template-rows: 200px 300px;
     width: 100%;
     position: relative;
+    font-size: 20px;
 
     .main-info{
-        margin-top: 20px;
-        position: absolute;
-        width: 200px;
-        height: 170px;
-        right: 0;
-
-        div.profile_img{
-            background-color: $ytred;
-            border-radius: 50%;
-            width: 120px;
-            height:120px;
-            img{
-                width: 120px;
-                height:120px;
-            }
-        }
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        
         .user_name{
-            margin-top: 10px;
-            font-size: 20px;
+            margin-top: 20px;
+            font-size: 25px;
             font-weight:bolder;
         }
     }
+    .location_followers_state{
+        display:flex;
+        flex-direction: column;
+        margin-top: 30px;
+        span {
+            margin-bottom: 40px;
+        }
+
+    }
         
+}
+
+.account_contents{
+    margin-top: 20px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+
+    span{
+        margin-bottom: 40px;
+    }
+
+
 }

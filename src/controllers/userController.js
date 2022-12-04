@@ -14,6 +14,7 @@ export const postJoin = async (req, res) => {
     if (!picFile) {
         picFile = {
             // path: "https://websterbyj.s3.ap-northeast-2.amazonaws.com/user-default.jpeg",
+            path: "../img/default_avatar.webp",
         }
     }
 
@@ -39,7 +40,7 @@ export const postJoin = async (req, res) => {
         location,
         profilePicPath: picFile.path,
       });
-    
+      console.log('', picFile.path);
       return res.redirect("/user/login");
     } catch (error) {
       return res.status(400).render("join", {
@@ -80,7 +81,6 @@ export const logout = (req, res) => {
     return res.redirect("/");
 };
 
-
 export const startGithubLogin = (req, res) => {
     const baseURL = "https://github.com/login/oauth/authorize";
     const config = {
@@ -90,6 +90,7 @@ export const startGithubLogin = (req, res) => {
     }; 
     const params = new URLSearchParams(config).toString();
     const finalURL = `${baseURL}?${params}`;
+    console.log('finalURL', finalURL);
     return res.redirect(finalURL);
 };
 
@@ -159,6 +160,7 @@ export const finishGithubLogin = async (req, res) => {
 
 
 export const getEdit = async (req, res) => {
+    console.log('', req.session.user);
     return res.render("user/edit", { pageTitle: "Edit Profile" });
 };
 export const postEdit = async (req, res) => {    
@@ -169,17 +171,20 @@ export const postEdit = async (req, res) => {
     const originalUser = req.session.user; 
     const pageTitle = "Edit Profile";
     const existingEmail = await User.exists( { email } );
-    const existingUsernadme = await User.exists( { username } );
+    const existingUsername = await User.exists( { username } );
     const hasEmailNotChanged = Boolean(email === originalUser.email);
     const hasUsernameNotChanged = Boolean(username === originalUser.username);
+    const hasLocationNotChanged = Boolean(location === originalUser.location);
+
 
     let isPicSame = true;
     let newProfilePicPath = profilePicPath;
     if (file) {    
         isPicSame = false;
-        newProfilePicPath = file.location;
+        newProfilePicPath = file.path;
     } else if (profilePicPath === null) {
-        newProfilePicPath = "../img/profile_pic.jpeg";
+        console.log('setting default profilepic', );
+        newProfilePicPath = "../img/default_avatar.webp";
     }
 
     let errorMessageArray = [];
@@ -195,6 +200,7 @@ export const postEdit = async (req, res) => {
         errorMessageArray.length === 0 
         && hasEmailNotChanged === true 
         && hasUsernameNotChanged === true
+        && hasLocationNotChanged === true
         && isPicSame === true
         ) {
         return res.status(400).render("user/edit", { pageTitle, errorMessage: "Nothing has changed."})
@@ -208,6 +214,7 @@ export const postEdit = async (req, res) => {
         location,
     }, {new: true});
     req.session.user = updatedUser;
+
     return res.redirect(`/user/${_id}`);
 };
 
@@ -230,7 +237,6 @@ export const account = async (req, res) => {
 };
 
 export const getChangePassword = (req, res) => {
-    req.flash("error", "Can't change password.");
     return res.render("user/change_password", { pageTitle: "Change Password" }); 
 };
 export const postChangePassword = async (req, res) => {
@@ -249,6 +255,5 @@ export const postChangePassword = async (req, res) => {
     userBeforeUpdate.password = password;
     await userBeforeUpdate.save();
     req.session.destroy();
-    req.flash("info", "Password updated");
     return res.redirect(`/user/${_id}`);
 };

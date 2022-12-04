@@ -1,6 +1,7 @@
 import Video from "../models/Video";
 import User from "../models/User";
 import { format } from "timeago.js";
+import { resourceUsage } from "process";
 
 export const videos = async (req, res) => {
   const videos = await Video.find({}).sort({ createdAt: "desc" });
@@ -133,3 +134,20 @@ export const search = async (req, res) => {
       .render("pages/error/404", { pageTitle: `Something went wrong.` });
   }
 };
+
+export const postRegisterView = async (req, res) => {
+  const {
+    params: {id}
+  } = req;
+  try {
+    const video = await Video.findById(id);
+    video.meta.views += 1;
+    video.save();
+    console.log('register view', );
+    res.status(200);
+  } catch (error) {
+    res.status(400);
+  } finally {
+    res.end();
+  }
+}

@@ -19,3 +19,57 @@ a.round-btn{
 
     }
 }
+
+input.save-btn{
+    width: 200px;
+    height: 30px;
+    position:absolute;
+    right:50px;
+    bottom: 30px;
+    border: 0;
+    font-weight: bolder;
+    &:hover{
+        background-color: $ytred;
+        color: white;
+        cursor: pointer;
+    }
+}
+
+a.normal-btn{
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 10px;
+    position:absolute;
+    right:0;
+    border: solid $ytred 1.5px;
+    font-weight: bolder;
+    &:hover{
+        background-color: $ytred;
+        color: white;
+        cursor: pointer;
+    }
+}
+
+a.normal-btn#github{
+    border-color: black;
+    background-color: white;
+    font-size: 20px;
+    display:flex;
+    align-items: center;
+    justify-content:space-evenly;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    width: 180px;
+    left: 50px;
+    bottom: 100px;
+    
+    i{ 
+        font-size: 30px;
+    }
+    &:hover{
+        color: white;
+        background-color: black;
+    }
+}

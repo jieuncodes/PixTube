@@ -11,6 +11,11 @@ header {
     border: solid white;
     border-width: 50px 0;
     background-color: white;
+    
+    #login-btn{
+        position: absolute;
+        right: 0;
+    }
 
     a.header__site_logo {
         justify-self: left;
@@ -41,7 +46,7 @@ header {
         display: flex;
         align-items: center;
         justify-self: right;
-        width: 230px;
+        width: 210px;
         justify-content: space-between;
         
         a.upload-video-icon{
@@ -50,9 +55,9 @@ header {
             i{
                 margin-left: -20px;
                 color: black;
-            }
-            
+            }            
         }
+
         a.sign-out-icon{
             font-size: 25px;
             display:flex;
