@@ -12,8 +12,6 @@ module.exports = {
     updatedTimeago: "./src/client/js/updatedTimeago.js",
 
   },
-  mode: "development",
-  watch: true,
   plugins: [
     new MiniCssExtractPlugin({
       filename: "css/styles.css",
