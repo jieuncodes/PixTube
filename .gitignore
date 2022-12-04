@@ -1,7 +1,7 @@
 node_modules
 .env
-/uploads
 /assets
 /build
 package-lock.json
 fly.toml
+/uploads
