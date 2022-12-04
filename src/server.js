@@ -12,8 +12,11 @@ import apiRouter from "./routers/apiRouter.js";
 const app = express();
 
 app.use((req, res, next) => {
-    res.header("Cross-Origin-Embedder-Policy", "require-corp");
-    res.header("Cross-Origin-Opener-Policy", "same-origin");
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+    );
     next();
     });
 app.set("view engine", "pug")
