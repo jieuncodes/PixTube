@@ -12,6 +12,7 @@ export const postJoin = async (req, res) => {
 
     let picFile = req.file;
     let noAvatar = false;
+    let socialOnly = false;
     if (!picFile) {
         picFile = {
             path: "https://pixtube.s3.ap-northeast-2.amazonaws.com/default_avatar.webp",
@@ -42,6 +43,7 @@ export const postJoin = async (req, res) => {
         username,
         location,
         profilePicPath: picFile.path,
+        socialOnly,
         noAvatar,
       });
       return res.redirect("/user/login");

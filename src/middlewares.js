@@ -39,7 +39,7 @@ export const publicOnlyMiddleware = (req, res, next) => {
 };
 
 export const profilePicUpload = multer({
-  dest: "uploads/profile_pic/",
+//   dest: "uploads/profile_pic/",
   storage: multerS3({
     s3,
     bucket: "pixtube/avatar",
@@ -48,7 +48,7 @@ export const profilePicUpload = multer({
 });
 
 export const videoUpload = multer({
-  dest: "uploads/videos/",
+//   dest: "uploads/videos/",
   storage: multerS3({
     s3,
     bucket: "pixtube/videos",

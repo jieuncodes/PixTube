@@ -4,7 +4,6 @@ import { format } from "timeago.js";
 
 export const videos = async (req, res) => {
   const videos = await Video.find({}).sort({ createdAt: "desc" });
-
   return res.render("video/videos_main", { pageTitle: "Videos", videos });
 };
 
@@ -35,11 +34,11 @@ export const postUpload = async (req, res) => {
   } = req.session;
   const { title, description, hashtags } = req.body;
   const { video, thumb } = req.files;
-
+  
   try {
-    await Video.create({
-      videoPath: video[0].path,
-      thumbPath: thumb[0].path,
+    const newVideo = await Video.create({
+      videoPath: video[0].location,
+      thumbPath: thumb[0].location,
       title,
       description,
       createdAt: Date.now(),
@@ -49,7 +48,8 @@ export const postUpload = async (req, res) => {
       },
       owner: _id,
     });
-    // console.log('video created!', newVideo);
+    console.log('video created!', newVideo);
+    
 
     if (video[0].size > 100 * 1024 * 1024) {
       return res.status(500).render("video/video_upload", {
@@ -57,7 +57,7 @@ export const postUpload = async (req, res) => {
       });
     }
     const user = await User.findById(_id);
-    // user.videos.push(newVideo._id);
+    user.videos.push(newVideo._id);
     user.save();
 
     return res.redirect("/videos");
@@ -68,7 +68,7 @@ export const postUpload = async (req, res) => {
       errorMessage: error._message,
     });
   }
-};
+}; 
 
 export const getEdit = async (req, res) => {
   const { id } = req.params;

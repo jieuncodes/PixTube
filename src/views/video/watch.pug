@@ -31,7 +31,7 @@ block content
                 small.videoInfo__last_update   Last update  #{updatedTimeago}
         
         div.videoInfo__uploaderInfo
-            if logggedInUser.socialOnly
+            if logggedInUser.socialOnly || loggedInUser.noAvatar
                 img.avatar(src=`${video.owner.profilePicPath}`, height="60", crossorigin="anonymous")
             else
                 img.avatar(src=`/${video.owner.profilePicPath}`, height="60", crossorigin="anonymous")
