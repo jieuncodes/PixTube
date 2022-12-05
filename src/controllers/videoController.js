@@ -4,6 +4,7 @@ import { format } from "timeago.js";
 
 export const videos = async (req, res) => {
   const videos = await Video.find({}).sort({ createdAt: "desc" });
+  
   return res.render("video/videos_main", { pageTitle: "Videos", videos });
 };
 
@@ -34,14 +35,15 @@ export const postUpload = async (req, res) => {
   } = req.session;
   const { title, description, hashtags } = req.body;
   const { video, thumb } = req.files;
-  
+  const usDate = new Intl.DateTimeFormat('en-US').format(Date.now());
   try {
     const newVideo = await Video.create({
+      ownerAvatarPath: req.session.user.profilePicPath,
       videoPath: video[0].location,
       thumbPath: thumb[0].location,
       title,
       description,
-      createdAt: Date.now(),
+      createdAt: usDate,
       hashtags: Video.formatHashtags(hashtags),
       meta: {
         views: 0,

@@ -8,7 +8,6 @@ export const createComment = async (req, res) => {
       body: { text },
       params: { id },
     } = req;
-    console.log('BODBODBODOBD', req);
 
     const commentOwner = await User.findById(user._id);
     const video = await Video.findById(id);
@@ -29,7 +28,6 @@ export const createComment = async (req, res) => {
     commentOwner.save();
     video.save();
 
-    console.log('&^&^&^&^createdComment', comment);
 
     return res.status(201).json({ newCommentId: comment._id, ownerId: commentOwner._id, videoId: video._id });
   };
