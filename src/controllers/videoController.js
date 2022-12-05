@@ -36,6 +36,7 @@ export const postUpload = async (req, res) => {
   const { title, description, hashtags } = req.body;
   const { video, thumb } = req.files;
   console.log(req.files);
+
   try {
     const newVideo = await Video.create({
       videoPath: video[0].path,
@@ -49,6 +50,7 @@ export const postUpload = async (req, res) => {
       },
       owner: _id,
     });
+    console.log('video created!', newVideo);
 
     if (video[0].size > 100 * 1024 * 1024) {
       return res.status(500).render("video/video_upload", {
@@ -56,11 +58,11 @@ export const postUpload = async (req, res) => {
       });
     }
     const user = await User.findById(_id);
-    user.videos.push(newVideo._id);
-    user.save();
+    await user.videos.push(newVideo._id);
+    await user.save();
 
     return res.redirect("/videos");
-    
+
   } catch (error) {
     return res.status(400).render("video/video_upload", {
       pageTitle: "Upload Video",

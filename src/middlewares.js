@@ -51,7 +51,7 @@ export const videoUpload = multer({
   dest: "uploads/videos/",
   storage: multerS3({
     s3,
-    bucket: "pixtube/video",
+    bucket: "pixtube/videos",
     acl: "public-read",
   }),
 });
