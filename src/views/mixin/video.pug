@@ -1,7 +1,7 @@
 mixin video(video)
     div.video-block
         a.image-link(href=`/videos/${video.id}`)        
-            img.thumb(src=`/${video.thumbPath}`) 
+            img.thumb(src=`/${video.thumbPath}`, crossorigin) 
         a.title-link(href=`/videos/${video.id}`)
             span.title=video.title 
         div.video-meta
