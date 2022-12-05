@@ -2,7 +2,7 @@ if loggedInUser
     hr
     div.add-comments          
         div.user-profile-pic
-            if loggedInUser.socialOnly
+            if loggedInUser.socialOnly || loggedInUser.noAvatar
                 img.avatar(src=`${loggedInUser.profilePicPath}`, crossorigin="anonymous") 
             else
                 img.avatar(src=`/${loggedInUser.profilePicPath}`, crossorigin="anonymous")    

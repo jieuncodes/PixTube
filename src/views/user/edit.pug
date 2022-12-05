@@ -8,7 +8,7 @@ block content
             label.subtitle(for="profile_pic") My profile picture 
             input(id="profile_pic", type="file", name="profile_pic", accept="image/*")       
             div.profile_img.user-edit-page
-                if loggedInUser.socialOnly
+                if loggedInUser.socialOnly || loggedInUser.noAvatar
                     img(src=loggedInUser.profilePicPath, crossorigin="anonymous")
                 else
                     img(src="/" + loggedInUser.profilePicPath, crossorigin="anonymous")

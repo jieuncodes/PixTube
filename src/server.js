@@ -12,30 +12,30 @@ import apiRouter from "./routers/apiRouter.js";
 const app = express();
 
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.header(
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    next();
-    });
-app.set("view engine", "pug")
-app.set("views", process.cwd() + "/src/views")
+  );
+  next();
+});
+app.set("view engine", "pug");
+app.set("views", process.cwd() + "/src/views");
 app.use(logger);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
-    session({
-        secret: process.env.COOKIE_SECRET,
-        resave: false,
-        saveUninitialized: false,
-        cookie: { 
-            maxAge: 86400000, 
-        },
-        store: MongoStore.create({mongoUrl: process.env.DB_URL}),
-    })
+  session({
+    secret: process.env.COOKIE_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 86400000,
+    },
+    store: MongoStore.create({ mongoUrl: process.env.DB_URL }),
+  })
 );
-app.use(flash()); 
+app.use(flash());
 app.use(localsMiddleware);
 
 app.use("/uploads", express.static("uploads"));
@@ -47,6 +47,5 @@ app.use("/", rootRouter);
 app.use("/user", userRouter);
 app.use("/videos", videoRouter);
 app.use("/api", apiRouter);
-
 
 export default app;

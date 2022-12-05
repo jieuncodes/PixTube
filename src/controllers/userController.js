@@ -11,11 +11,13 @@ export const postJoin = async (req, res) => {
     const { email, password, password2, username, location } = req.body;
 
     let picFile = req.file;
+    let noAvatar = false;
     if (!picFile) {
         picFile = {
             path: "https://pixtube.s3.ap-northeast-2.amazonaws.com/default_avatar.webp",
             // path: "../img/default_avatar.webp",
         }
+        noAvatar = true;
     }
     
 
@@ -40,8 +42,8 @@ export const postJoin = async (req, res) => {
         username,
         location,
         profilePicPath: picFile.path,
+        noAvatar,
       });
-      console.log('', picFile.path);
       return res.redirect("/user/login");
     } catch (error) {
       return res.status(400).render("join", {

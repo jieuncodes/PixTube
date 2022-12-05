@@ -13,7 +13,7 @@ header.header
                 i.fa-solid.fa-video
             div#profileLink(username=loggedInUser.username)
                 a(href=`/user/${loggedInUser._id}`)
-                    if loggedInUser.socialOnly
+                    if loggedInUser.socialOnly || loggedInUser.noAvatar
                         img.avatar(src=`${loggedInUser.profilePicPath}`, height="40",crossorigin="anonymous") 
                     else 
                         img.avatar(src=`/${loggedInUser.profilePicPath}`, height="40",crossorigin="anonymous")              

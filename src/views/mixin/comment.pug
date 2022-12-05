@@ -2,7 +2,7 @@ mixin comment(comment)
     div.comment-box(data-id=comment.id, data-owner=comment.owner, data-video=comment.video)
 
         div.comment-owner-img
-            if loggedInUser.socialOnly
+            if loggedInUser.socialOnly || loggedInUser.noAvatar
                     img(src=comment.ownerProfilePic, crossorigin="anonymous") 
             else 
                 img(src="/" + comment.ownerProfilePic, crossorigin="anonymous")  
