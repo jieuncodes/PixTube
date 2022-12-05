@@ -60,6 +60,7 @@ export const postUpload = async (req, res) => {
     user.save();
 
     return res.redirect("/videos");
+    
   } catch (error) {
     return res.status(400).render("video/video_upload", {
       pageTitle: "Upload Video",

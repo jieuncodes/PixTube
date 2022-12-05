@@ -39,22 +39,19 @@ export const publicOnlyMiddleware = (req, res, next) => {
 };
 
 export const profilePicUpload = multer({
-  // dest: "uploads/profile_pic/",
-  limits: {
-    fileSize: 5 * 1024 * 1024,
-  },
+  dest: "uploads/profile_pic/",
   storage: multerS3({
     s3,
-    bucket: "pixtube/video",
+    bucket: "pixtube/avatar",
     acl: "public-read",
   }),
 });
 
 export const videoUpload = multer({
-  // dest: "uploads/videos/",
+  dest: "uploads/videos/",
   storage: multerS3({
     s3,
-    bucket: "pixtube/avatar",
+    bucket: "pixtube/video",
     acl: "public-read",
   }),
 });
