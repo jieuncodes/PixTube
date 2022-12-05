@@ -27,7 +27,7 @@ npm run start
 ```
 
 ## Challenge
-- [ ] User Auth
+- [x] User Auth
 - [x] Edit profile
 - [x] Change Password
 - [x] Video Upload
@@ -36,4 +36,4 @@ npm run start
 - [x] Watch video
 - [x] Javascript Video player
 - [x] Comment Section
-- [ ] Deploy
+- [x] Deploy
