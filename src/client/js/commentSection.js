@@ -1,17 +1,18 @@
+import { format } from "timeago.js";
+
 const videoContainer = document.getElementById("videoContainer");
 const form = document.getElementById("addCommentForm");
 const textarea = form.querySelector("textarea");
 const btn = form.querySelector("button");
-const createdAt = document.querySelector(".comment-createdAt");
 const allEllipses = document.querySelectorAll(".ellipsis");
 const profileLink = document.getElementById("profileLink");
 const linkAnchor = profileLink.querySelector("a");
 const loggedInUserId = linkAnchor.pathname.slice(-24);
 const editForm = document.getElementById("editForm");
-
+const AllCreatedAt = document.querySelectorAll(".comment-createdAt");
 
 const addComment = (text, id, owner, video) => {
-  console.log('adding comment', );
+  console.log("adding comment");
   const videoComments = document.querySelector(".comments");
   const newCommentBox = document.createElement("div");
   newCommentBox.className = "comment-box";
@@ -147,7 +148,7 @@ const handleEllipsisClick = async (event) => {
   popup.className = "popup";
   const ellipsis = event.target;
 
-  console.log('', loggedInUserId);
+  console.log("", loggedInUserId);
 
   if (
     event.currentTarget.dataset.owner === loggedInUserId ||
@@ -284,6 +285,18 @@ const handleEditCancel = () => {
   ellipsis.addEventListener("click", handleEllipsisClick, { once: true });
 };
 
+const paintDates = () => {
+  AllCreatedAt.forEach((date) => {
+    if (!date) {
+      date.innerHTML = "a few seconds ago";
+    } else {
+      const createdTimeAgo = format(date.innerHTML, "ko_KR");
+      date.innerHTML = createdTimeAgo;
+    }
+  });
+};
+
+paintDates();
 
 if (form) {
   form.addEventListener("submit", createComment);

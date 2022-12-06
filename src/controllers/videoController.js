@@ -18,7 +18,7 @@ export const watch = async (req, res) => {
   }
   const updatedTimeago = format(video.createdAt, "ko_KR");
 
-  // console.log(video);
+  console.log(video);
   return res.render("video/watch", {
     pageTitle: "Videos",
     video,
@@ -33,9 +33,10 @@ export const postUpload = async (req, res) => {
   const {
     user: { _id },
   } = req.session;
+  console.log('ID', _id);
+  console.log('STRING', JSON.stringify(_id));
   const { title, description, hashtags } = req.body;
   const { video, thumb } = req.files;
-  const usDate = new Intl.DateTimeFormat('en-US').format(Date.now());
   try {
     const newVideo = await Video.create({
       ownerAvatarPath: req.session.user.profilePicPath,
@@ -43,7 +44,7 @@ export const postUpload = async (req, res) => {
       thumbPath: thumb[0].location,
       title,
       description,
-      createdAt: usDate,
+      createdAt: Date.now(),
       hashtags: Video.formatHashtags(hashtags),
       meta: {
         views: 0,
@@ -54,6 +55,7 @@ export const postUpload = async (req, res) => {
     
 
     if (video[0].size > 100 * 1024 * 1024) {
+      console.log('TOO LARGE', );
       return res.status(500).render("video/video_upload", {
         errorMessage: "File size should be less than 100Mb!",
       });
@@ -146,7 +148,6 @@ export const postRegisterView = async (req, res) => {
     const video = await Video.findById(id);
     video.meta.views += 1;
     video.save();
-    console.log('register view', );
     res.status(200);
   } catch (error) {
     res.status(400);

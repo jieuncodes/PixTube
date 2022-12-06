@@ -25,16 +25,17 @@
                 a 
                     i.fas.fa-history
                     span="Histroy"
-                a  
-                    i.fas.fa-video
-                    span="Your videos"
+                
                 hr
                 if loggedInUser
+                    a(href=`/user/${loggedInUser._id}`)  
+                        i.fas.fa-video
+                        span="Your videos"
                     a(href=`/user/${loggedInUser._id}`)
                         i.fas.fa-wrench
                         span="Settings"
 
-                a  
+                a(href="mailto: youredith@gmail.com")
                     i.far.fa-envelope
                     span="Send feedback"
 

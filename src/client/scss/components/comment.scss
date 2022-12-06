@@ -55,10 +55,14 @@
         grid-area: comment-box__top;
         margin-bottom: 7px;
         margin-left: 24px;
+        .comment-owner{
+            font-weight: bolder;
+        }
 
         .comment-createdAt {
             font-weight: 700;
             margin-left: 10px;
+            color: grey;
         }
     }
 

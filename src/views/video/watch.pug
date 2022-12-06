@@ -3,7 +3,7 @@ include ../mixin/comment
 
 block content     
     div#videoContainer(data-id=video._id)
-        video(src="/" + video.videoPath, crossorigin)
+        video(src=video.videoPath, crossorigin)
         
         div#videoControls
             div.timeline
