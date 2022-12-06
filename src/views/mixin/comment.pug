@@ -9,7 +9,7 @@ mixin comment(comment)
 
         div.comment-box__top
             span.comment-owner #{comment.ownerName}
-            span.comment-createdAt #{comment.createdAt}
+            span.date #{comment.date}
 
         div.comment-text #{comment.text}
         div.ellipsis(data-owner=comment.owner)

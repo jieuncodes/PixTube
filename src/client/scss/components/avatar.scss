@@ -1,20 +1,26 @@
-img.avatar {
+div.profile-img_s{            
     border-radius: 50%;
     height: 40px;
-    width: 40px;
-    object-fit: cover;
-    overflow: hidden;
+}
+img.avatar_s{
+    border-radius: 50%;
+    height: 40px;
 }
 
-div.profile_img{            
-    background-color: $ytred;
+div.profile-img_m{            
     border-radius: 50%;
-    width: 120px;
-    height:120px;
-    img{
-        width: 120px;
-        height:120px;
-        object-fit: cover;
-        overflow: hidden;
-    }
+    height: 60px;
+}
+img.avatar_m{
+    border-radius: 50%;
+    height: 60px;
+}
+
+div.profile-img_l{            
+    border-radius: 50%;
+    height: 120px;
+}
+img.avatar_l{
+    border-radius: 50%;
+    height: 120px;
 }

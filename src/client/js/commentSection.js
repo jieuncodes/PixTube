@@ -1,5 +1,3 @@
-import { format } from "timeago.js";
-
 const videoContainer = document.getElementById("videoContainer");
 const form = document.getElementById("addCommentForm");
 const textarea = form.querySelector("textarea");
@@ -9,7 +7,6 @@ const profileLink = document.getElementById("profileLink");
 const linkAnchor = profileLink.querySelector("a");
 const loggedInUserId = linkAnchor.pathname.slice(-24);
 const editForm = document.getElementById("editForm");
-const AllCreatedAt = document.querySelectorAll(".comment-createdAt");
 
 const addComment = (text, id, owner, video) => {
   console.log("adding comment");
@@ -23,7 +20,7 @@ const addComment = (text, id, owner, video) => {
   commentOwnerProfilePic.className = "comment-owner-img";
 
   const ownerImg = document.createElement("img");
-  ownerImg.src = document.querySelector(".user-profile-pic img").src;
+  ownerImg.src = document.getElementById("user-avatar").src;
   ownerImg.crossOrigin = "anonymous";
   commentOwnerProfilePic.appendChild(ownerImg);
 
@@ -35,11 +32,12 @@ const addComment = (text, id, owner, video) => {
   ownerName.innerHTML = ownerNameSrc;
   ownerName.className = "comment-owner";
 
-  const createdAt = document.createElement("span");
-  createdAt.className = "comment-createdAt";
-  createdAt.innerText = "a few seconds ago";
+  const date = document.createElement("span");
+  date.className = "date";
+  date.innerText = "a few seconds ago";
+
   commentBoxTop.appendChild(ownerName);
-  commentBoxTop.appendChild(createdAt);
+  commentBoxTop.appendChild(date);
 
   const commentText = document.createElement("div");
   commentText.className = "comment-text";
@@ -285,18 +283,6 @@ const handleEditCancel = () => {
   ellipsis.addEventListener("click", handleEllipsisClick, { once: true });
 };
 
-const paintDates = () => {
-  AllCreatedAt.forEach((date) => {
-    if (!date) {
-      date.innerHTML = "a few seconds ago";
-    } else {
-      const createdTimeAgo = format(date.innerHTML, "ko_KR");
-      date.innerHTML = createdTimeAgo;
-    }
-  });
-};
-
-paintDates();
 
 if (form) {
   form.addEventListener("submit", createComment);

@@ -32,9 +32,9 @@ block content
         
         div.videoInfo__uploaderInfo
             if video.owner.socialOnly || video.owner.noAvatar
-                img.avatar(src=`${video.owner.profilePicPath}`, height="60", crossorigin="anonymous")
+                img.avatar_m(src=`${video.owner.profilePicPath}`, height="60", crossorigin="anonymous")
             else
-                img.avatar(src=`/${video.owner.profilePicPath}`, height="60", crossorigin="anonymous")
+                img.avatar_m(src=`/${video.owner.profilePicPath}`, height="60", crossorigin="anonymous")
             div.descriptions
                 a(href=`/user/${String(video.owner._id)}`) #{video.owner.username}
                 span.subscribers 3 subscribers
@@ -51,5 +51,8 @@ block content
 
 block scripts
     script(src="/static/js/videoPlayer.js")
+    script(src="/static/js/updatedTimeago.js")
+
+
     if loggedInUser
         script(src="/static/js/commentSection.js")

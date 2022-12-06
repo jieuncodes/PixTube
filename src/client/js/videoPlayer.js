@@ -18,21 +18,18 @@ let controlsTimeout = null;
 let volumeValue = 0.5;
 video.volume = volumeValue;
 
-
 const handlePlayClick = () => {
-  const {id} = videoContainer.dataset;
+  const { id } = videoContainer.dataset;
   fetch(`/api/videos/${id}/view`, {
     method: "POST",
   });
 
-  if (video.paused) {    
+  if (video.paused) {
     video.play();
   } else {
     video.pause();
   }
   playBtnIcon.className = video.paused ? "fas fa-play" : "fas fa-pause";
-
-  
 };
 const handleMuteClick = () => {
   if (video.muted) {
@@ -40,7 +37,9 @@ const handleMuteClick = () => {
   } else {
     video.muted = true;
   }
-  muteBtnIcon.className = video.muted ? "fa-solid fa-volume-xmark" : "fas fa-volume-up";
+  muteBtnIcon.className = video.muted
+    ? "fa-solid fa-volume-xmark"
+    : "fas fa-volume-up";
   volumeRange.value = video.muted ? 0 : volumeValue;
 };
 const handleVolumeChange = (event) => {
@@ -95,7 +94,6 @@ const handleTimeUpdate = () => {
   timeline.value = Math.floor(video.currentTime);
 };
 
-
 const hideControls = () => videoControls.classList.remove("showing");
 
 const handleMouseMove = () => {
@@ -115,13 +113,14 @@ const handleMouseLeave = () => {
   controlsTimeout = setTimeout(hideControls, 3000);
 };
 
-
+handlePlayClick();
 
 window.addEventListener("keydown", function (event) {
   if (event.code == "Enter") {
     handlePlayClick();
   }
 });
+
 playBtn.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMuteClick);
 volumeRange.addEventListener("input", handleVolumeChange);

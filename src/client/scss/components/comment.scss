@@ -2,24 +2,25 @@
     margin-top: 30px;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    display: grid;
-    grid-template-areas:
-        "user-img add-comment add-comment  .";
-    grid-template-columns: 70px repeat(2, auto) 50px;
+    grid-template-columns: 60px auto;
+    margin-bottom: 40px;
 
-    #addCommentForm {
-        display: flex;
-        flex-direction: row;
-        width: 70%;
+    .comment-line {
+        #addCommentForm {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            margin-left: 30px;
+            width: 70%;
+            height: 40px;
+            margin-top: 10px;
 
-        button {
-            margin-left: 10px;
+            button {
+                margin-left: 10px;
+            }
         }
     }
 
-    margin-bottom: 40px;
 }
 
 .comment-box {
@@ -55,11 +56,12 @@
         grid-area: comment-box__top;
         margin-bottom: 7px;
         margin-left: 24px;
-        .comment-owner{
+
+        .comment-owner {
             font-weight: bolder;
         }
 
-        .comment-createdAt {
+        .date {
             font-weight: 700;
             margin-left: 10px;
             color: grey;
@@ -170,9 +172,11 @@
         height: 30px;
         margin-top: -20px;
     }
-    .edit-btn{
+
+    .edit-btn {
         grid-area: edit-btn;
     }
+
     .cancel-btn {
         grid-area: cancel-btn;
     }

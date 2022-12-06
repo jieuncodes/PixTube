@@ -3,8 +3,7 @@ import User from "../models/User";
 import { format } from "timeago.js";
 
 export const videos = async (req, res) => {
-  const videos = await Video.find({}).sort({ createdAt: "desc" });
-  
+  const videos = await Video.find({}).sort({ createdAt: "desc" });  
   return res.render("video/videos_main", { pageTitle: "Videos", videos });
 };
 

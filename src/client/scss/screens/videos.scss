@@ -30,9 +30,9 @@
         display: grid;
         width: 100%;
         grid-template-areas: "pic descriptions subscribe";
-        grid-template-columns: 70px auto auto;
+        grid-template-columns: 90px auto auto;
 
-        img.avatar{
+        img.avatar_m{
             grid-area: "pic";
         }
         div.descriptions{
