@@ -23,7 +23,7 @@ block content
 
     div#videoInfo
         div.videoInfo__header
-            div.videoInfo__hashtags=video.hashtags
+            div.videoInfo__hashtags=video.hashtags.join(" ")
             h2.videoInfo__title=video.title
             div.videoInfo__state
                 small.videoInfo__views #{video.meta.views} views

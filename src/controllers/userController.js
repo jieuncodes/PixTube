@@ -39,7 +39,7 @@ export const postJoin = async (req, res) => {
     try {
       const newUser = await User.create({
         email,
-        password,
+        password: bcrypt(password, 5),
         username,
         location,
         profilePicPath: picFile.location,
@@ -50,7 +50,7 @@ export const postJoin = async (req, res) => {
       return res.redirect("/user/login");
 
     } catch (error) {
-      return res.status(400).render("join", {
+      return res.status(400).render("user/join", {
         pageTitle, errorMessage: error._message,
       });
     }
@@ -69,8 +69,10 @@ export const postLogin = async (req, res) => {
             errorMessage: "An account with this e-mail does not exists."
         });        
     }
-
+    console.log('user.password', user.password);
+    console.log('type password ', bcrypt(password, 5), );
     const ok = bcrypt.compare(password, user.password);
+
     if (!ok) {
         return res.status(400).render("login", {
             pageTitle: "Login",
