@@ -6,7 +6,7 @@ block content
     form(method="POST", enctype="multipart/form-data").submit-form
         div.profile-pic
             label.subtitle(for="profile_pic") My profile picture 
-            input(id="profile_pic", type="file", name="profile_pic", accept="image/*")       
+            input.edit_page(id="profile_pic", type="file", name="profile_pic", accept="image/*")       
             div.profile-img.large
                 if loggedInUser.socialOnly || loggedInUser.noAvatar
                     img.avatar.large#editProfile(src=loggedInUser.profilePicPath, crossorigin="anonymous")

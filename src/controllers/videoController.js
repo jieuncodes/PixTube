@@ -26,16 +26,17 @@ export const watch = async (req, res) => {
 };
 
 export const getUpload = (req, res) => {
+  console.log('', req.session.user.profilePicPath);
+
   return res.render("video/video_upload", { pageTitle: "Upload Video" });
 };
 export const postUpload = async (req, res) => {
   const {
     user: { _id },
   } = req.session;
-  console.log('ID', _id);
-  console.log('STRING', JSON.stringify(_id));
   const { title, description, hashtags } = req.body;
   const { video, thumb } = req.files;
+
   try {
     const newVideo = await Video.create({
       ownerAvatarPath: req.session.user.profilePicPath,

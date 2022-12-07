@@ -5,7 +5,7 @@ block content
     div.profile_card
         div.main-info
             div.profile-img.large
-                if loggedInUser.socialOnly || loggedInUser.noAvatar
+                if user.socialOnly || user.noAvatar
                     img.avatar.large(src=user.profilePicPath,crossorigin="anonymous")
                 else
                     img.avatar.large(src= "/" + user.profilePicPath,crossorigin="anonymous")

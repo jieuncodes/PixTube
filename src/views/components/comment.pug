@@ -2,10 +2,11 @@ if loggedInUser
     hr
     div.add-comments          
         div.profile-img.middle
-            if loggedInUser.socialOnly || loggedInUser.noAvatar
-                img.avatar.middle(src=`${loggedInUser.profilePicPath}`, crossorigin="anonymous") 
-            else
-                img.avatar.middle(src=`/${loggedInUser.profilePicPath}`, crossorigin="anonymous")    
+            if loggedInUser
+                if loggedInUser.socialOnly || loggedInUser.noAvatar
+                    img.avatar.middle(src=`${loggedInUser.profilePicPath}`, crossorigin="anonymous") 
+                else
+                    img.avatar.middle(src=`/${loggedInUser.profilePicPath}`, crossorigin="anonymous")    
         div.comment-line  
             form#addCommentForm         
                 textarea(cols="70", rows="0.5", placeholder="Write a nice comment here!")
