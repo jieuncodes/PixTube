@@ -13,9 +13,9 @@ const userSchema = new mongoose.Schema({
   noAvatar: { type: String },
 });
 
-userSchema.pre("save", function () {
+userSchema.pre("save", async function () {
   if (this.isModified("password")) {
-    this.password = bcrypt.hash(this.password, 5);
+    this.password = await bcrypt.hash(this.password, 5);
   }
 });
 
