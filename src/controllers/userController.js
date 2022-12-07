@@ -15,7 +15,7 @@ export const postJoin = async (req, res) => {
     let socialOnly = false;
     if (!picFile) {
         picFile = {
-            path: "https://pixtube.s3.ap-northeast-2.amazonaws.com/default_avatar.webp",
+            location: "https://pixtube.s3.ap-northeast-2.amazonaws.com/default_avatar.webp",
             // path: "../img/default_avatar.webp",
         }
         noAvatar = true;
@@ -48,7 +48,7 @@ export const postJoin = async (req, res) => {
       });
       console.log('userCreated!!', newUser);
       return res.redirect("/user/login");
-      
+
     } catch (error) {
       return res.status(400).render("join", {
         pageTitle, errorMessage: error._message,
