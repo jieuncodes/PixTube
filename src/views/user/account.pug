@@ -4,11 +4,11 @@ include ../mixin/video
 block content
     div.profile_card
         div.main-info
-            div.profile-img_l
+            div.profile-img.large
                 if loggedInUser.socialOnly || loggedInUser.noAvatar
-                    img.avatar_l(src=user.profilePicPath,crossorigin="anonymous")
+                    img.avatar.large(src=user.profilePicPath,crossorigin="anonymous")
                 else
-                    img.avatar_l(src= "/" + user.profilePicPath,crossorigin="anonymous")
+                    img.avatar.large(src= "/" + user.profilePicPath,crossorigin="anonymous")
                 
             div.user_name
                 span=user.username

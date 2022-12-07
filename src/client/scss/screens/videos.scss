@@ -32,7 +32,7 @@
         grid-template-areas: "pic descriptions subscribe";
         grid-template-columns: 90px auto auto;
 
-        img.avatar_m{
+        img.avatar.middle{
             grid-area: "pic";
         }
         div.descriptions{

@@ -37,16 +37,18 @@ export const postJoin = async (req, res) => {
     }
 
     try {
-      await User.create({
+      const newUser = await User.create({
         email,
         password,
         username,
         location,
-        profilePicPath: picFile.path,
+        profilePicPath: picFile.location,
         socialOnly,
         noAvatar,
       });
+      console.log('userCreated!!', newUser);
       return res.redirect("/user/login");
+      
     } catch (error) {
       return res.status(400).render("join", {
         pageTitle, errorMessage: error._message,
@@ -151,6 +153,7 @@ export const finishGithubLogin = async (req, res) => {
                 socialOnly: true,
                 profilePicPath: userData.avatar_url, 
                 location: userData.location,
+                noAvatar: false,
             });
         }
         req.session.loggedIn = true;
@@ -171,6 +174,7 @@ export const postEdit = async (req, res) => {
     const { session : { user : { _id, profilePicPath } }, body: { email, username, location }, file } = req;
     console.log('profilePicPath', profilePicPath);
     console.log('file', file);
+    console.log('file.location', file.location);
 
     const originalUser = req.session.user; 
     const pageTitle = "Edit Profile";
@@ -183,12 +187,16 @@ export const postEdit = async (req, res) => {
 
     let isPicSame = true;
     let newProfilePicPath = profilePicPath;
+    let noAvatar = false;
     if (file) {    
+        console.log('file submitted', );
         isPicSame = false;
-        newProfilePicPath = file.path;
-    } else if (profilePicPath === null) {
+        newProfilePicPath = file.location;
+        console.log('file', file);
+    } else if (!profilePicPath) {
         console.log('setting default profilepic', );
-        newProfilePicPath = "../img/default_avatar.webp";
+        newProfilePicPath = "https://pixtube.s3.ap-northeast-2.amazonaws.com/default_avatar.webp";
+        noAvatar = true;
     }
 
     let errorMessageArray = [];
@@ -216,9 +224,10 @@ export const postEdit = async (req, res) => {
         email,
         username,
         location,
+        noAvatar,
     }, {new: true});
     req.session.user = updatedUser;
-
+    console.log('user updated!!', updatedUser);
     return res.redirect(`/user/${_id}`);
 };
 
