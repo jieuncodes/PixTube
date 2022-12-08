@@ -1,7 +1,7 @@
 mixin comment(comment)
     div.comment-box(data-id=comment.id, data-owner=comment.owner, data-video=comment.video)
 
-        div.comment-owner-img
+        a.comment-owner-img(href=`/user/${String(comment.owner._id)}`)
             img(src=comment.ownerProfilePic, crossorigin="anonymous")
 
         div.comment-box__top
@@ -14,5 +14,5 @@ mixin comment(comment)
 
         div.comment-box__bottom
             div.like-btns
-                i.far.fa-thumbs-up
+                i.far.fa-thumbs-up/default_avatar.webp
                 i.far.fa-thumbs-down

@@ -32,6 +32,7 @@ block content
         
         div.videoInfo__uploaderInfo
             if video.owner.socialOnly || video.owner.noAvatar
+               a(href=`/user/${String(video.owner._id)}`)
                 img.avatar.middle(src=`${video.owner.profilePicPath}`, height="60", crossorigin="anonymous")
             else
                 img.avatar.middle(src=`/${video.owner.profilePicPath}`, height="60", crossorigin="anonymous")
