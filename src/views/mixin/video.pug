@@ -4,7 +4,7 @@ mixin video(video)
             img.thumb(src=`${video.thumbPath}`, crossorigin)
         
         div.video-block__info
-            a.profile-img.normal(href=`/user/${loggedInUser._id}`)
+            a.profile-img.normal(href=`/user/${video.owner._id}`)
                 img.avatar.normal(src=`${video.ownerAvatarPath}`, crossorigin)
             a.title-link(href=`/videos/${video.id}`)
                 span.title=video.title 
