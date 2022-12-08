@@ -1,20 +1,22 @@
 .video-list {
     justify-self: center;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(22vw, 1fr));
-    grid-template-rows: repeat(4, minmax(13.2vw, 1fr));
-    column-gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(21vw, auto));
+    grid-template-rows: repeat(4, minmax(200px, 0.8fr));
+    column-gap: 80px;
     row-gap: 110px;
 
     width: 106%;
     height: 180px;
-    margin: -40px;
+    margin-left: -40px;
+    margin-right: 40px;
 
     .video-block {
         background-color: black;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: center;        
+        width: 110%;
 
         a.image-link {
             display: flex;
@@ -33,14 +35,12 @@
         div.video-block__info {
             display: grid;
             position:absolute;
-            width: 22vw;
-            margin-bottom: -20%;
-            grid-template-areas: "avatar title"
-            "avatar metas";
+            margin-top: 290px;
+            width: 100%;
             grid-template-columns: 70px auto;
             grid-template-rows: 40px auto ;
+            
             div.owner-avatar {
-                grid-area: "avatar";
                 border-radius: 50%;
                 width: 50px;
                 height: 50px;
@@ -55,7 +55,6 @@
             }
 
             a.title-link {
-                grid-area: "title";
                 span.title {
                     font-size: 20px;
                     top: 2px;
@@ -65,7 +64,6 @@
             }
 
             div.video-meta {
-                grid-area: "metas";
                 display: flex;
                 flex-direction: row;
                 position: absolute;

@@ -1,10 +1,11 @@
 mixin video(video)
     div.video-block
         a.image-link(href=`/videos/${video.id}`)        
-            img.thumb(src=`${video.thumbPath}`, crossorigin)    
+            img.thumb(src=`${video.thumbPath}`, crossorigin)
+        
         div.video-block__info
-            div.owner-avatar
-                img(src=`${video.ownerAvatarPath}`, crossorigin)
+            a.profile-img.normal(href=`/user/${loggedInUser._id}`)
+                img.avatar.normal(src=`${video.ownerAvatarPath}`, crossorigin)
             a.title-link(href=`/videos/${video.id}`)
                 span.title=video.title 
             div.video-meta

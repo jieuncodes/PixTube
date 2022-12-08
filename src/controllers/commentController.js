@@ -70,8 +70,6 @@ export const deleteComment = async(req, res) => {
   await Comment.findByIdAndDelete(id);
   const commentOwner = await User.findById(comment.owner._id);
   const video = await Video.findById(String(comment.video));
-  await commentOwner.save();
-  await video.save();
 
   return res.sendStatus(200);
 }
