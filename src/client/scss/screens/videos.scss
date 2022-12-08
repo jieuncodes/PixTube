@@ -1,3 +1,8 @@
+#videoContainer{    
+    &:hover{    
+        cursor: pointer;
+    }
+}
 #videoInfo {
     .videoInfo__header{
         position: relative;

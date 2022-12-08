@@ -1,3 +1,5 @@
+import { Cursor } from "mongoose";
+
 const video = document.querySelector("video");
 const playBtn = document.getElementById("play");
 const playBtnIcon = playBtn.querySelector("i");
@@ -120,6 +122,9 @@ window.addEventListener("keydown", function (event) {
     handlePlayClick();
   }
 });
+videoContainer.addEventListener("click", function (event) {
+  handlePlayClick();
+})
 
 playBtn.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMuteClick);

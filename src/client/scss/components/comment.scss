@@ -132,6 +132,7 @@
 
         .like-btns {
             display: flex;
+            width: 50px;
             margin-right: 40px;
             justify-content: space-between;
             width: 50px;
@@ -139,6 +140,7 @@
             i:nth-child(2) {
                 transform: scaleX(-1);
                 margin-top: 1.5px;
+                margin-left: 10px;
             }
         }
     }
