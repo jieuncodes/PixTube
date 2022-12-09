@@ -122,9 +122,6 @@ window.addEventListener("keydown", function (event) {
     handlePlayClick();
   }
 });
-videoContainer.addEventListener("click", function (event) {
-  handlePlayClick();
-})
 
 playBtn.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMuteClick);
