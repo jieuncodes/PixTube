@@ -3,12 +3,13 @@ mixin video(video)
         a.image-link(href=`/videos/${video.id}`)        
             img.thumb(src=`${video.thumbPath}`, crossorigin)
         
-        div.video-block__info
-            a.profile-img.normal(href=`/user/${video.owner._id}`)
-                img.avatar.normal(src=`${video.ownerAvatarPath}`, crossorigin)
-            a.title-link(href=`/videos/${video.id}`)
-                span.title=video.title 
-            div.video-meta
-                span.views #{video.meta.views} views
-                span.date=video.createdAt
+        if(!accountPage)
+            div.video-block__info
+                a.profile-img.normal(href=`/user/${video.owner._id}`)
+                    img.avatar.normal(src=`${video.ownerAvatarPath}`, crossorigin)
+                a.title-link(href=`/videos/${video.id}`)
+                    span.title=video.title 
+                div.video-meta
+                    span.views #{video.meta.views} views
+                    span.date=video.createdAt
 
