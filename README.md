@@ -10,7 +10,7 @@
 
 </p>
 
-### 🔗 [Pixtube](https://github.com/BornInTheMiddleOfUniverse/PixTube#readme)
+### 🔗 [Pixtube](https://pixtube.fly.dev/)
 
 Cloning Youtube (Nomad Coders Academy)
 
