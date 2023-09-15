@@ -1,9 +1,9 @@
 import morgan from "morgan";
 import multer from "multer";
 import multerS3 from "multer-s3";
-import aws from "aws-sdk";
+import { S3 } from "@aws-sdk/client-s3";
 
-const s3 = new aws.S3({
+const s3 = new S3({
   credentials: {
     accessKeyId: process.env.AWS_ID,
     secretAccessKey: process.env.AWS_SECRET,
@@ -39,19 +39,23 @@ export const publicOnlyMiddleware = (req, res, next) => {
 };
 
 export const profilePicUpload = multer({
-//   dest: "uploads/profile_pic/",
   storage: multerS3({
     s3,
-    bucket: "pixtube/avatar",
+    bucket: "pixtube",
     acl: "public-read",
+    key: function (req, file, cb) {
+      cb(null, `avatar/${file.originalname}`);
+    },
   }),
 });
 
 export const videoUpload = multer({
-//   dest: "uploads/videos/",
   storage: multerS3({
     s3,
-    bucket: "pixtube/videos",
+    bucket: "pixtube",
     acl: "public-read",
+    key: function (req, file, cb) {
+      cb(null, `videos/${file.originalname}`);
+    },
   }),
 });

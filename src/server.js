@@ -9,7 +9,7 @@ import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import apiRouter from "./routers/apiRouter.js";
 
-const app = express();
+export const app = express();
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -47,5 +47,3 @@ app.use("/", rootRouter);
 app.use("/user", userRouter);
 app.use("/videos", videoRouter);
 app.use("/api", apiRouter);
-
-export default app;

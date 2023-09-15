@@ -1,4 +1,5 @@
-Dockerfile
-.dockerignore
 node_modules
-.git
+.env
+/assets
+/build
+/uploads
